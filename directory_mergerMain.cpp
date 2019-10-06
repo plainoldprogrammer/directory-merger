@@ -82,7 +82,7 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     StaticText3 = new wxStaticText(this, ID_STATICTEXT3, _("Output Directory:"), wxPoint(16,192), wxDefaultSize, 0, _T("ID_STATICTEXT3"));
     TextCtrl3 = new wxTextCtrl(this, ID_TEXTCTRL3, wxEmptyString, wxPoint(16,216), wxSize(432,24), 0, wxDefaultValidator, _T("ID_TEXTCTRL3"));
     ToggleButton2 = new wxToggleButton(this, ID_TOGGLEBUTTON2, _("..."), wxPoint(456,216), wxSize(24,24), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON2"));
-    ToggleButton3 = new wxToggleButton(this, ID_TOGGLEBUTTON3, _("Merge Directories"), wxPoint(216,304), wxSize(144,44), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON3"));
+    ToggleButton3 = new wxToggleButton(this, ID_TOGGLEBUTTON3, _("Merge Directories"), wxPoint(184,304), wxSize(144,44), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON3"));
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
     MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);

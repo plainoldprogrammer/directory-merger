@@ -44,7 +44,7 @@
 		</object>
 		<object class="wxToggleButton" name="ID_TOGGLEBUTTON3" variable="ToggleButton3" member="yes">
 			<label>Merge Directories</label>
-			<pos>216,304</pos>
+			<pos>184,304</pos>
 			<size>144,44</size>
 		</object>
 		<object class="wxMenuBar" variable="MenuBar1" member="no">
