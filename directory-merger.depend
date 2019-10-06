@@ -1495,10 +1495,11 @@
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\univ\theme.h
 	"wx/string.h"
 
-1570336018 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
+1570336319 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
 	<wx/button.h>
 	<wx/frame.h>
 	<wx/menu.h>
+	<wx/statline.h>
 	<wx/stattext.h>
 	<wx/statusbr.h>
 	<wx/textctrl.h>
@@ -1780,7 +1781,7 @@
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\msw\rcdefs.h
 
-1570327585 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
+1570336069 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
 	"directory_mergerMain.h"
 	<wx/msgdlg.h>
 	<wx/intl.h>
@@ -1855,4 +1856,31 @@
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\qt\msgdlg.h
 	"wx/msgdlg.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\statline.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/univ/statline.h"
+	"wx/msw/statline.h"
+	"wx/gtk/statline.h"
+	"wx/gtk1/statline.h"
+	"wx/osx/statline.h"
+	"wx/qt/statline.h"
+	"wx/generic/statline.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\univ\statline.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\msw\statline.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\gtk\statline.h
+	"wx/defs.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\gtk1\statline.h
+	"wx/defs.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\osx\statline.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\qt\statline.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\generic\statline.h
 

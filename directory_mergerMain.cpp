@@ -52,6 +52,7 @@ const long directory_mergerFrame::ID_STATICTEXT3 = wxNewId();
 const long directory_mergerFrame::ID_TEXTCTRL3 = wxNewId();
 const long directory_mergerFrame::ID_TOGGLEBUTTON2 = wxNewId();
 const long directory_mergerFrame::ID_TOGGLEBUTTON3 = wxNewId();
+const long directory_mergerFrame::ID_STATICLINE1 = wxNewId();
 const long directory_mergerFrame::idMenuQuit = wxNewId();
 const long directory_mergerFrame::idMenuAbout = wxNewId();
 const long directory_mergerFrame::ID_STATUSBAR1 = wxNewId();
@@ -83,6 +84,7 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     TextCtrl3 = new wxTextCtrl(this, ID_TEXTCTRL3, wxEmptyString, wxPoint(16,216), wxSize(432,24), 0, wxDefaultValidator, _T("ID_TEXTCTRL3"));
     ToggleButton2 = new wxToggleButton(this, ID_TOGGLEBUTTON2, _("..."), wxPoint(456,216), wxSize(24,24), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON2"));
     ToggleButton3 = new wxToggleButton(this, ID_TOGGLEBUTTON3, _("Merge Directories"), wxPoint(184,304), wxSize(144,44), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON3"));
+    StaticLine1 = new wxStaticLine(this, ID_STATICLINE1, wxPoint(16,176), wxSize(464,2), wxLI_HORIZONTAL, _T("ID_STATICLINE1"));
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
     MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);

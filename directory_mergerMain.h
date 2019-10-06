@@ -14,6 +14,7 @@
 #include <wx/button.h>
 #include <wx/frame.h>
 #include <wx/menu.h>
+#include <wx/statline.h>
 #include <wx/stattext.h>
 #include <wx/statusbr.h>
 #include <wx/textctrl.h>
@@ -45,6 +46,7 @@ class directory_mergerFrame: public wxFrame
         static const long ID_TEXTCTRL3;
         static const long ID_TOGGLEBUTTON2;
         static const long ID_TOGGLEBUTTON3;
+        static const long ID_STATICLINE1;
         static const long idMenuQuit;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
@@ -52,6 +54,7 @@ class directory_mergerFrame: public wxFrame
 
         //(*Declarations(directory_mergerFrame)
         wxButton* Button1;
+        wxStaticLine* StaticLine1;
         wxStaticText* StaticText1;
         wxStaticText* StaticText2;
         wxStaticText* StaticText3;
