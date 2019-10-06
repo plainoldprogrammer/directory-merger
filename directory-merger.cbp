@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="directory-merger" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/directory-merger" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="C:/Users/DellE7440/libs/wxWidgets-3.1.2/lib/gcc_dll/mswu" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="C:/Users/DellE7440/libs/wxWidgets-3.1.2/lib/gcc_dll/mswu" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libwxmsw31u.a" />
+					<Add directory="C:/Users/DellE7440/libs/wxWidgets-3.1.2/lib/gcc_dll" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option="-D__GNUWIN32__" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-DWXUSINGDLL" />
+			<Add option="-DwxUSE_UNICODE" />
+			<Add option="-Wall" />
+			<Add directory="C:/Users/DellE7440/libs/wxWidgets-3.1.2/include" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="C:/Users/DellE7440/libs/wxWidgets-3.1.2/include" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="-mthreads" />
+		</Linker>
+		<Unit filename="directory_mergerApp.cpp" />
+		<Unit filename="directory_mergerApp.h" />
+		<Unit filename="directory_mergerMain.cpp" />
+		<Unit filename="directory_mergerMain.h" />
+		<Unit filename="resource.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="wxsmith/directory_mergerframe.wxs" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="directory_mergerApp.cpp" main="directory_mergerFrame" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxFrame wxs="wxsmith/directory_mergerframe.wxs" src="directory_mergerMain.cpp" hdr="directory_mergerMain.h" fwddecl="0" i18n="1" name="directory_mergerFrame" language="CPP" />
+				</resources>
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
