@@ -34,7 +34,7 @@ class directory_mergerFrame: public wxFrame
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
         void OnButtonFirstDirectoryClick(wxCommandEvent& event);
-        void OnbuttonFirstDirectoryClick(wxCommandEvent& event);
+        void OnButtonSecondDirectoryToggle(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(directory_mergerFrame)
@@ -61,12 +61,12 @@ class directory_mergerFrame: public wxFrame
         wxStaticText* StaticText2;
         wxStaticText* StaticText3;
         wxStatusBar* StatusBar1;
-        wxTextCtrl* TextCtrl2;
         wxTextCtrl* TextCtrl3;
         wxTextCtrl* textFirstDirectory;
-        wxToggleButton* ToggleButton1;
+        wxTextCtrl* textSecondDirectory;
         wxToggleButton* ToggleButton2;
         wxToggleButton* ToggleButton3;
+        wxToggleButton* buttonSecondDirectory;
         //*)
 
         DECLARE_EVENT_TABLE()

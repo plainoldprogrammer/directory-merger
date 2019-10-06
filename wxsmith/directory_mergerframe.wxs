@@ -7,7 +7,7 @@
 			<label>Directory 1:</label>
 			<pos>16,16</pos>
 		</object>
-		<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes">
+		<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="textFirstDirectory" member="yes">
 			<pos>16,40</pos>
 			<size>432,24</size>
 		</object>
@@ -15,20 +15,21 @@
 			<label>...</label>
 			<pos>456,40</pos>
 			<size>24,24</size>
-			<handler function="OnButton1Click" entry="EVT_BUTTON" />
+			<handler function="OnbuttonFirstDirectoryClick" entry="EVT_BUTTON" />
 		</object>
 		<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
 			<label>Directory 2:</label>
 			<pos>16,96</pos>
 		</object>
-		<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextCtrl2" member="yes">
+		<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="textSecondDirectory" member="yes">
 			<pos>16,120</pos>
 			<size>432,24</size>
 		</object>
-		<object class="wxToggleButton" name="ID_TOGGLEBUTTON1" variable="ToggleButton1" member="yes">
+		<object class="wxToggleButton" name="ID_TOGGLEBUTTON1" variable="buttonSecondDirectory" member="yes">
 			<label>...</label>
 			<pos>456,120</pos>
 			<size>24,24</size>
+			<handler function="OnbuttonSecondDirectoryToggle" entry="EVT_TOGGLEBUTTON" />
 		</object>
 		<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
 			<label>Output Directory:</label>
