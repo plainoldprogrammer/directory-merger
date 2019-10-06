@@ -11,9 +11,13 @@
 #define DIRECTORY_MERGERMAIN_H
 
 //(*Headers(directory_mergerFrame)
+#include <wx/button.h>
 #include <wx/frame.h>
 #include <wx/menu.h>
+#include <wx/stattext.h>
 #include <wx/statusbr.h>
+#include <wx/textctrl.h>
+#include <wx/tglbtn.h>
 //*)
 
 class directory_mergerFrame: public wxFrame
@@ -31,13 +35,33 @@ class directory_mergerFrame: public wxFrame
         //*)
 
         //(*Identifiers(directory_mergerFrame)
+        static const long ID_STATICTEXT1;
+        static const long ID_TEXTCTRL1;
+        static const long ID_BUTTON1;
+        static const long ID_STATICTEXT2;
+        static const long ID_TEXTCTRL2;
+        static const long ID_TOGGLEBUTTON1;
+        static const long ID_STATICTEXT3;
+        static const long ID_TEXTCTRL3;
+        static const long ID_TOGGLEBUTTON2;
+        static const long ID_TOGGLEBUTTON3;
         static const long idMenuQuit;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
 
         //(*Declarations(directory_mergerFrame)
+        wxButton* Button1;
+        wxStaticText* StaticText1;
+        wxStaticText* StaticText2;
+        wxStaticText* StaticText3;
         wxStatusBar* StatusBar1;
+        wxTextCtrl* TextCtrl1;
+        wxTextCtrl* TextCtrl2;
+        wxTextCtrl* TextCtrl3;
+        wxToggleButton* ToggleButton1;
+        wxToggleButton* ToggleButton2;
+        wxToggleButton* ToggleButton3;
         //*)
 
         DECLARE_EVENT_TABLE()

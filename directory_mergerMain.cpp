@@ -42,6 +42,16 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 }
 
 //(*IdInit(directory_mergerFrame)
+const long directory_mergerFrame::ID_STATICTEXT1 = wxNewId();
+const long directory_mergerFrame::ID_TEXTCTRL1 = wxNewId();
+const long directory_mergerFrame::ID_BUTTON1 = wxNewId();
+const long directory_mergerFrame::ID_STATICTEXT2 = wxNewId();
+const long directory_mergerFrame::ID_TEXTCTRL2 = wxNewId();
+const long directory_mergerFrame::ID_TOGGLEBUTTON1 = wxNewId();
+const long directory_mergerFrame::ID_STATICTEXT3 = wxNewId();
+const long directory_mergerFrame::ID_TEXTCTRL3 = wxNewId();
+const long directory_mergerFrame::ID_TOGGLEBUTTON2 = wxNewId();
+const long directory_mergerFrame::ID_TOGGLEBUTTON3 = wxNewId();
 const long directory_mergerFrame::idMenuQuit = wxNewId();
 const long directory_mergerFrame::idMenuAbout = wxNewId();
 const long directory_mergerFrame::ID_STATUSBAR1 = wxNewId();
@@ -62,6 +72,17 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     wxMenuItem* MenuItem2;
 
     Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
+    SetClientSize(wxSize(580,410));
+    StaticText1 = new wxStaticText(this, ID_STATICTEXT1, _("Label"), wxPoint(16,16), wxDefaultSize, 0, _T("ID_STATICTEXT1"));
+    TextCtrl1 = new wxTextCtrl(this, ID_TEXTCTRL1, _("Text"), wxPoint(16,40), wxSize(432,24), 0, wxDefaultValidator, _T("ID_TEXTCTRL1"));
+    Button1 = new wxButton(this, ID_BUTTON1, _("Label"), wxPoint(456,32), wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
+    StaticText2 = new wxStaticText(this, ID_STATICTEXT2, _("Label"), wxPoint(16,96), wxDefaultSize, 0, _T("ID_STATICTEXT2"));
+    TextCtrl2 = new wxTextCtrl(this, ID_TEXTCTRL2, _("Text"), wxPoint(16,120), wxSize(432,24), 0, wxDefaultValidator, _T("ID_TEXTCTRL2"));
+    ToggleButton1 = new wxToggleButton(this, ID_TOGGLEBUTTON1, _("Label"), wxPoint(456,112), wxDefaultSize, 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON1"));
+    StaticText3 = new wxStaticText(this, ID_STATICTEXT3, _("Label"), wxPoint(16,192), wxDefaultSize, 0, _T("ID_STATICTEXT3"));
+    TextCtrl3 = new wxTextCtrl(this, ID_TEXTCTRL3, _("Text"), wxPoint(16,216), wxSize(432,24), 0, wxDefaultValidator, _T("ID_TEXTCTRL3"));
+    ToggleButton2 = new wxToggleButton(this, ID_TOGGLEBUTTON2, _("Label"), wxPoint(456,208), wxDefaultSize, 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON2"));
+    ToggleButton3 = new wxToggleButton(this, ID_TOGGLEBUTTON3, _("Label"), wxPoint(248,304), wxSize(87,44), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON3"));
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
     MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
