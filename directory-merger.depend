@@ -1495,7 +1495,7 @@
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\univ\theme.h
 	"wx/string.h"
 
-1570336319 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
+1570337374 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
 	<wx/button.h>
 	<wx/frame.h>
 	<wx/menu.h>
@@ -1781,9 +1781,10 @@
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\msw\rcdefs.h
 
-1570336069 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
+1570337292 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
 	"directory_mergerMain.h"
 	<wx/msgdlg.h>
+	<wx/dirdlg.h>
 	<wx/intl.h>
 	<wx/string.h>
 
@@ -1883,4 +1884,27 @@
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\qt\statline.h
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\generic\statline.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\dirdlg.h
+	"wx/defs.h"
+	"wx/dialog.h"
+	"wx/generic/dirdlgg.h"
+	"wx/generic/dirdlgg.h"
+	"wx/msw/dirdlg.h"
+	"wx/gtk/dirdlg.h"
+	"wx/generic/dirdlgg.h"
+	"wx/osx/dirdlg.h"
+	"wx/generic/dirdlgg.h"
+	"wx/qt/dirdlg.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\generic\dirdlgg.h
+	"wx/dialog.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\msw\dirdlg.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\gtk\dirdlg.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\osx\dirdlg.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\qt\dirdlg.h
 
