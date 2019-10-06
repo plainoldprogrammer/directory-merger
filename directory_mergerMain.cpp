@@ -115,8 +115,7 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
 
 directory_mergerFrame::~directory_mergerFrame()
 {
-    //(*Destroy(directory_mergerFrame)
-    //*)
+	FreeConsole();
 }
 
 void directory_mergerFrame::attachConsoleForDebug()
