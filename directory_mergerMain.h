@@ -21,6 +21,8 @@
 #include <wx/tglbtn.h>
 //*)
 
+#include <string>
+
 class directory_mergerFrame: public wxFrame
 {
     public:
@@ -30,6 +32,7 @@ class directory_mergerFrame: public wxFrame
 
     private:
 		void attachConsoleForDebug();
+		void getFilesFromDirectory(std::string);
 
         //(*Handlers(directory_mergerFrame)
         void OnQuit(wxCommandEvent& event);

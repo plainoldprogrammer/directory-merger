@@ -10,6 +10,7 @@
 #include "directory_mergerMain.h"
 #include <wx/msgdlg.h>
 #include <wx/dirdlg.h>
+#include <dirent.h>
 
 //(*InternalHeaders(directory_mergerFrame)
 #include <wx/intl.h>
@@ -125,6 +126,37 @@ void directory_mergerFrame::attachConsoleForDebug()
 	std::cout << "Console has been attached" << std::endl;
 }
 
+void directory_mergerFrame::getFilesFromDirectory(std::string path)
+{
+	DIR *directory;
+	struct dirent *entry;
+
+	std::string fileName = "";
+
+	if ((directory = opendir(path.c_str())) != NULL)
+	{
+		std::cout << "DIR " << path << ":" << std::endl;
+
+		while ((entry = readdir(directory)) != NULL)
+		{
+			fileName = entry->d_name;
+
+			if (!(fileName.compare(".") == 0) && !(fileName.compare("..") == 0))
+			{
+				fileName = path + "\\" + fileName;
+				std::cout << fileName << std::endl;
+			}
+		}
+
+		closedir(directory);
+		std::cout << std::endl;
+	}
+	else
+	{
+		std::cout << "Can't open directory " << path << std::endl;
+	}
+}
+
 void directory_mergerFrame::OnQuit(wxCommandEvent& event)
 {
     Close();
@@ -141,6 +173,7 @@ void directory_mergerFrame::OnButtonFirstDirectoryClick(wxCommandEvent& event)
 	wxDirDialog dlg(NULL, "Choose first directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
 	textFirstDirectory->SetLabel(dlg.GetPath());
+	getFilesFromDirectory(dlg.GetPath().ToStdString());
 }
 
 void directory_mergerFrame::OnButtonSecondDirectoryToggle(wxCommandEvent& event)
@@ -148,6 +181,7 @@ void directory_mergerFrame::OnButtonSecondDirectoryToggle(wxCommandEvent& event)
 	wxDirDialog dlg(NULL, "Choose second directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
 	textSecondDirectory->SetLabel(dlg.GetPath());
+	getFilesFromDirectory(dlg.GetPath().ToStdString());
 }
 
 void directory_mergerFrame::OnButtonOutputDirectoryToggle(wxCommandEvent& event)

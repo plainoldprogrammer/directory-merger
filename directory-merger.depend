@@ -1495,7 +1495,7 @@
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\univ\theme.h
 	"wx/string.h"
 
-1570341918 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
+1570346454 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
 	<wx/button.h>
 	<wx/frame.h>
 	<wx/menu.h>
@@ -1504,6 +1504,7 @@
 	<wx/statusbr.h>
 	<wx/textctrl.h>
 	<wx/tglbtn.h>
+	<string>
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\menu.h
 	"wx/defs.h"
@@ -1781,10 +1782,11 @@
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\msw\rcdefs.h
 
-1570341513 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
+1570347546 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
 	"directory_mergerMain.h"
 	<wx/msgdlg.h>
 	<wx/dirdlg.h>
+	<dirent.h>
 	<wx/intl.h>
 	<wx/string.h>
 
