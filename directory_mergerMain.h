@@ -22,6 +22,7 @@
 //*)
 
 #include <string>
+#include <vector>
 
 class directory_mergerFrame: public wxFrame
 {
@@ -29,6 +30,9 @@ class directory_mergerFrame: public wxFrame
 
         directory_mergerFrame(wxWindow* parent,wxWindowID id = -1);
         virtual ~directory_mergerFrame();
+		static bool compareNaturalOrder(const std::string& , const std::string&);
+		static std::string toUpper(std::string);
+		static void logDirectoryContent(std::vector<std::string>);
 
     private:
 		void attachConsoleForDebug();

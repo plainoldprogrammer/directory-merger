@@ -11,6 +11,10 @@
 #include <wx/msgdlg.h>
 #include <wx/dirdlg.h>
 #include <dirent.h>
+#include <string>
+#include <vector>
+#include <cctype>
+#include <sstream>
 
 //(*InternalHeaders(directory_mergerFrame)
 #include <wx/intl.h>
@@ -131,6 +135,7 @@ void directory_mergerFrame::getFilesFromDirectory(std::string path)
 	DIR *directory;
 	struct dirent *entry;
 
+	std::vector<std::string> files;
 	std::string fileName = "";
 
 	if ((directory = opendir(path.c_str())) != NULL)
@@ -144,17 +149,85 @@ void directory_mergerFrame::getFilesFromDirectory(std::string path)
 			if (!(fileName.compare(".") == 0) && !(fileName.compare("..") == 0))
 			{
 				fileName = path + "\\" + fileName;
-				std::cout << fileName << std::endl;
+				files.push_back(fileName);
 			}
 		}
 
 		closedir(directory);
-		std::cout << std::endl;
+
+		std::sort(files.begin(), files.end(), compareNaturalOrder);
+		logDirectoryContent(files);
 	}
 	else
 	{
 		std::cout << "Can't open directory " << path << std::endl;
 	}
+}
+
+bool directory_mergerFrame::compareNaturalOrder(const std::string& a, const std::string& b)
+{
+    if (a.empty())
+	{
+        return true;
+	}
+    if (b.empty())
+	{
+        return false;
+	}
+    if (std::isdigit(a[0]) && !std::isdigit(b[0]))
+	{
+        return true;
+	}
+    if (!std::isdigit(a[0]) && std::isdigit(b[0]))
+	{
+        return false;
+	}
+    if (!std::isdigit(a[0]) && !std::isdigit(b[0]))
+    {
+        if (a[0] == b[0])
+		{
+            return compareNaturalOrder(a.substr(1), b.substr(1));
+		}
+
+        return (toUpper(a) < toUpper(b));
+    }
+
+    // Both strings begin with digit. Parse both numbers
+    std::istringstream issa(a);
+    std::istringstream issb(b);
+    int ia;
+	int ib;
+    issa >> ia;
+    issb >> ib;
+
+    if (ia != ib)
+	{
+        return ia < ib;
+}
+
+    // Numbers are the same. Remove numbers and recurse
+    std::string anew;
+	std::string bnew;
+    std::getline(issa, anew);
+    std::getline(issb, bnew);
+
+    return (compareNaturalOrder(anew, bnew));
+}
+
+std::string directory_mergerFrame::toUpper(std::string s)
+{
+    for(int i=0;i<(int)s.length();i++){s[i]=toupper(s[i]);}
+    return s;
+}
+
+void directory_mergerFrame::logDirectoryContent(std::vector<std::string> dirContent)
+{
+	for (unsigned int i = 0; i < dirContent.size(); i++)
+	{
+		std::cout << dirContent.at(i) << std::endl;
+	}
+
+	std::cout << std::endl;
 }
 
 void directory_mergerFrame::OnQuit(wxCommandEvent& event)
