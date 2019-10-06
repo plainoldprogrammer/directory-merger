@@ -109,12 +109,21 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnAbout);
     //*)
+
+	attachConsoleForDebug();
 }
 
 directory_mergerFrame::~directory_mergerFrame()
 {
     //(*Destroy(directory_mergerFrame)
     //*)
+}
+
+void directory_mergerFrame::attachConsoleForDebug()
+{
+	AllocConsole();
+	freopen("CONOUT$", "w", stdout);
+	std::cout << "Console has been attached" << std::endl;
 }
 
 void directory_mergerFrame::OnQuit(wxCommandEvent& event)

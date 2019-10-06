@@ -29,6 +29,7 @@ class directory_mergerFrame: public wxFrame
         virtual ~directory_mergerFrame();
 
     private:
+		void attachConsoleForDebug();
 
         //(*Handlers(directory_mergerFrame)
         void OnQuit(wxCommandEvent& event);
