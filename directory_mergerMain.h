@@ -30,14 +30,13 @@ class directory_mergerFrame: public wxFrame
 
         directory_mergerFrame(wxWindow* parent,wxWindowID id = -1);
         virtual ~directory_mergerFrame();
+		void attachConsoleForDebug();
+		void getFilesFromDirectory(std::string);
 		static bool compareNaturalOrder(const std::string& , const std::string&);
 		static std::string toUpper(std::string);
 		static void logDirectoryContent(std::vector<std::string>);
 
     private:
-		void attachConsoleForDebug();
-		void getFilesFromDirectory(std::string);
-
         //(*Handlers(directory_mergerFrame)
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);

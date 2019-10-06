@@ -123,6 +123,40 @@ directory_mergerFrame::~directory_mergerFrame()
 	FreeConsole();
 }
 
+void directory_mergerFrame::OnQuit(wxCommandEvent& event)
+{
+    Close();
+}
+
+void directory_mergerFrame::OnAbout(wxCommandEvent& event)
+{
+    wxString msg = wxbuildinfo(long_f);
+    wxMessageBox(msg, _("Welcome to..."));
+}
+
+void directory_mergerFrame::OnButtonFirstDirectoryClick(wxCommandEvent& event)
+{
+	wxDirDialog dlg(NULL, "Choose first directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
+	dlg.ShowModal();
+	textFirstDirectory->SetLabel(dlg.GetPath());
+	getFilesFromDirectory(dlg.GetPath().ToStdString());
+}
+
+void directory_mergerFrame::OnButtonSecondDirectoryToggle(wxCommandEvent& event)
+{
+	wxDirDialog dlg(NULL, "Choose second directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
+	dlg.ShowModal();
+	textSecondDirectory->SetLabel(dlg.GetPath());
+	getFilesFromDirectory(dlg.GetPath().ToStdString());
+}
+
+void directory_mergerFrame::OnButtonOutputDirectoryToggle(wxCommandEvent& event)
+{
+	wxDirDialog dlg(NULL, "Choose output directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
+	dlg.ShowModal();
+	textOutputDirectory->SetLabel(dlg.GetPath());
+}
+
 void directory_mergerFrame::attachConsoleForDebug()
 {
 	AllocConsole();
@@ -228,38 +262,4 @@ void directory_mergerFrame::logDirectoryContent(std::vector<std::string> dirCont
 	}
 
 	std::cout << std::endl;
-}
-
-void directory_mergerFrame::OnQuit(wxCommandEvent& event)
-{
-    Close();
-}
-
-void directory_mergerFrame::OnAbout(wxCommandEvent& event)
-{
-    wxString msg = wxbuildinfo(long_f);
-    wxMessageBox(msg, _("Welcome to..."));
-}
-
-void directory_mergerFrame::OnButtonFirstDirectoryClick(wxCommandEvent& event)
-{
-	wxDirDialog dlg(NULL, "Choose first directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
-	dlg.ShowModal();
-	textFirstDirectory->SetLabel(dlg.GetPath());
-	getFilesFromDirectory(dlg.GetPath().ToStdString());
-}
-
-void directory_mergerFrame::OnButtonSecondDirectoryToggle(wxCommandEvent& event)
-{
-	wxDirDialog dlg(NULL, "Choose second directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
-	dlg.ShowModal();
-	textSecondDirectory->SetLabel(dlg.GetPath());
-	getFilesFromDirectory(dlg.GetPath().ToStdString());
-}
-
-void directory_mergerFrame::OnButtonOutputDirectoryToggle(wxCommandEvent& event)
-{
-	wxDirDialog dlg(NULL, "Choose output directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
-	dlg.ShowModal();
-	textOutputDirectory->SetLabel(dlg.GetPath());
 }
