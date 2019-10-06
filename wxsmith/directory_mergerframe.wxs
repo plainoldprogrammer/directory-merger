@@ -1,50 +1,51 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="directory_mergerFrame">
-		<size>580,410</size>
+		<size>506,410</size>
+		<id_arg>0</id_arg>
 		<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
-			<label>Label</label>
+			<label>Directory 1:</label>
 			<pos>16,16</pos>
 		</object>
 		<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes">
-			<value>Text</value>
 			<pos>16,40</pos>
 			<size>432,24</size>
 		</object>
 		<object class="wxButton" name="ID_BUTTON1" variable="Button1" member="yes">
-			<label>Label</label>
-			<pos>456,32</pos>
+			<label>...</label>
+			<pos>456,40</pos>
+			<size>24,24</size>
 		</object>
 		<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
-			<label>Label</label>
+			<label>Directory 2:</label>
 			<pos>16,96</pos>
 		</object>
 		<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextCtrl2" member="yes">
-			<value>Text</value>
 			<pos>16,120</pos>
 			<size>432,24</size>
 		</object>
 		<object class="wxToggleButton" name="ID_TOGGLEBUTTON1" variable="ToggleButton1" member="yes">
-			<label>Label</label>
-			<pos>456,112</pos>
+			<label>...</label>
+			<pos>456,120</pos>
+			<size>24,24</size>
 		</object>
 		<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
-			<label>Label</label>
+			<label>Output Directory:</label>
 			<pos>16,192</pos>
 		</object>
 		<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextCtrl3" member="yes">
-			<value>Text</value>
 			<pos>16,216</pos>
 			<size>432,24</size>
 		</object>
 		<object class="wxToggleButton" name="ID_TOGGLEBUTTON2" variable="ToggleButton2" member="yes">
-			<label>Label</label>
-			<pos>456,208</pos>
+			<label>...</label>
+			<pos>456,216</pos>
+			<size>24,24</size>
 		</object>
 		<object class="wxToggleButton" name="ID_TOGGLEBUTTON3" variable="ToggleButton3" member="yes">
-			<label>Label</label>
-			<pos>248,304</pos>
-			<size>87,44</size>
+			<label>Merge Directories</label>
+			<pos>216,304</pos>
+			<size>144,44</size>
 		</object>
 		<object class="wxMenuBar" variable="MenuBar1" member="no">
 			<object class="wxMenu" variable="Menu1" member="no">
