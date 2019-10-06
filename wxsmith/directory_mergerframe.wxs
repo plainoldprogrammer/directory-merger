@@ -35,14 +35,15 @@
 			<label>Output Directory:</label>
 			<pos>16,192</pos>
 		</object>
-		<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextCtrl3" member="yes">
+		<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="textOutputDirectory" member="yes">
 			<pos>16,216</pos>
 			<size>432,24</size>
 		</object>
-		<object class="wxToggleButton" name="ID_TOGGLEBUTTON2" variable="ToggleButton2" member="yes">
+		<object class="wxToggleButton" name="ID_TOGGLEBUTTON2" variable="buttonOutputDirectory" member="yes">
 			<label>...</label>
 			<pos>456,216</pos>
 			<size>24,24</size>
+			<handler function="OnbuttonOutputDirectoryToggle" entry="EVT_TOGGLEBUTTON" />
 		</object>
 		<object class="wxToggleButton" name="ID_TOGGLEBUTTON3" variable="ToggleButton3" member="yes">
 			<label>Merge Directories</label>
