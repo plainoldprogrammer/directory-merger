@@ -10,8 +10,8 @@
 #include "directory_mergerMain.h"
 #include <wx/msgdlg.h>
 #include <wx/dirdlg.h>
-#include <dirent.h>
 #include <vector>
+#include <dirent.h>
 #include <sstream>
 #include <string>
 
@@ -169,11 +169,23 @@ void directory_mergerFrame::OnButtonOutputDirectoryToggle(wxCommandEvent& event)
 
 void directory_mergerFrame::OnButtonMergeDirectoriesToggle(wxCommandEvent& event)
 {
-	std::cout << "Merging Files:" << std::endl;
+	std::cout << "**Merging Files**" << std::endl;
+	std::cout << "First Directory:" << std::endl;
 	for (unsigned int i = 0; i < contentOnFirstDirectory.size(); i++)
 	{
 		std::string src = firstDirectoryPath + "\\" + contentOnFirstDirectory.at(i);
 		std::string dest = outputDirectoryPath + "\\" + contentOnFirstDirectory.at(i);
+		std::cout << src << "\t=>\t" << dest << std::endl;
+
+		rename(src.c_str(), dest.c_str());
+	}
+
+	std::cout << std::endl;
+	std::cout << "Second Directory:" << std::endl;
+	for (unsigned int i = 0; i < contentOnSecondDirectory.size(); i++)
+	{
+		std::string src = secondDirectoryPath + "\\" + contentOnSecondDirectory.at(i);
+		std::string dest = outputDirectoryPath + "\\" + contentOnSecondDirectory.at(i);
 		std::cout << src << "\t=>\t" << dest << std::endl;
 
 		rename(src.c_str(), dest.c_str());
