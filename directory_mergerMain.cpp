@@ -52,12 +52,12 @@ const long directory_mergerFrame::ID_TEXTCTRL1 = wxNewId();
 const long directory_mergerFrame::ID_BUTTON1 = wxNewId();
 const long directory_mergerFrame::ID_STATICTEXT2 = wxNewId();
 const long directory_mergerFrame::ID_TEXTCTRL2 = wxNewId();
-const long directory_mergerFrame::ID_TOGGLEBUTTON1 = wxNewId();
 const long directory_mergerFrame::ID_STATICTEXT3 = wxNewId();
 const long directory_mergerFrame::ID_TEXTCTRL3 = wxNewId();
 const long directory_mergerFrame::ID_TOGGLEBUTTON2 = wxNewId();
 const long directory_mergerFrame::ID_TOGGLEBUTTON3 = wxNewId();
 const long directory_mergerFrame::ID_STATICLINE1 = wxNewId();
+const long directory_mergerFrame::ID_BUTTON2 = wxNewId();
 const long directory_mergerFrame::idMenuQuit = wxNewId();
 const long directory_mergerFrame::idMenuAbout = wxNewId();
 const long directory_mergerFrame::ID_STATUSBAR1 = wxNewId();
@@ -85,12 +85,12 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     StaticText2 = new wxStaticText(this, ID_STATICTEXT2, _("Directory 2:"), wxPoint(16,96), wxDefaultSize, 0, _T("ID_STATICTEXT2"));
     TextSecondDirectory = new wxTextCtrl(this, ID_TEXTCTRL2, wxEmptyString, wxPoint(16,120), wxSize(432,24), 0, wxDefaultValidator, _T("ID_TEXTCTRL2"));
     TextSecondDirectory->SetMaxSize(wxSize(-1,-1));
-    ButtonSecondDirectory = new wxToggleButton(this, ID_TOGGLEBUTTON1, _("..."), wxPoint(456,120), wxSize(24,24), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON1"));
     StaticText3 = new wxStaticText(this, ID_STATICTEXT3, _("Output Directory:"), wxPoint(16,192), wxDefaultSize, 0, _T("ID_STATICTEXT3"));
     TextOutputDirectory = new wxTextCtrl(this, ID_TEXTCTRL3, wxEmptyString, wxPoint(16,216), wxSize(432,24), 0, wxDefaultValidator, _T("ID_TEXTCTRL3"));
     ButtonOutputDirectory = new wxToggleButton(this, ID_TOGGLEBUTTON2, _("..."), wxPoint(456,216), wxSize(24,24), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON2"));
     ButtonMergeDirectories = new wxToggleButton(this, ID_TOGGLEBUTTON3, _("Merge Directories"), wxPoint(184,304), wxSize(144,44), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON3"));
     StaticLine1 = new wxStaticLine(this, ID_STATICLINE1, wxPoint(16,176), wxSize(464,2), wxLI_HORIZONTAL, _T("ID_STATICLINE1"));
+    ButtonSecondDirectory = new wxButton(this, ID_BUTTON2, _("..."), wxPoint(456,120), wxSize(24,24), 0, wxDefaultValidator, _T("ID_BUTTON2"));
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
     MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
@@ -108,12 +108,13 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
 
-    Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnQuit);
-    Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnAbout);
+
 	Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonFirstDirectoryClick);
-	Connect(ID_TOGGLEBUTTON1,wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonSecondDirectoryToggle);
+    Connect(ID_BUTTON2,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonSecondDirectoryClick);
 	Connect(ID_TOGGLEBUTTON2,wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonOutputDirectoryToggle);
 	Connect(ID_TOGGLEBUTTON3,wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonMergeDirectoriesToggle);
+    Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnQuit);
+    Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnAbout);
     //*)
 
 	attachConsoleForDebug();
@@ -147,7 +148,7 @@ void directory_mergerFrame::OnButtonFirstDirectoryClick(wxCommandEvent& event)
 	logDirectoryContent(contentOnFirstDirectory);
 }
 
-void directory_mergerFrame::OnButtonSecondDirectoryToggle(wxCommandEvent& event)
+void directory_mergerFrame::OnButtonSecondDirectoryClick(wxCommandEvent& event)
 {
 	wxDirDialog dlg(NULL, "Choose second directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
@@ -158,6 +159,7 @@ void directory_mergerFrame::OnButtonSecondDirectoryToggle(wxCommandEvent& event)
 	std::cout << "DIR " << secondDirectoryPath << ":" << std::endl;
 	logDirectoryContent(contentOnSecondDirectory);
 }
+
 void directory_mergerFrame::OnButtonOutputDirectoryToggle(wxCommandEvent& event)
 {
 	wxDirDialog dlg(NULL, "Choose output directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
@@ -297,4 +299,6 @@ void directory_mergerFrame::logDirectoryContent(std::vector<std::string> dirCont
 
 	std::cout << std::endl;
 }
+
+
 

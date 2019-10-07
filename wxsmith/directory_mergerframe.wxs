@@ -25,11 +25,6 @@
 			<size>432,24</size>
 			<maxsize>-1,-1</maxsize>
 		</object>
-		<object class="wxToggleButton" name="ID_TOGGLEBUTTON1" variable="ButtonSecondDirectory" member="yes">
-			<label>...</label>
-			<pos>456,120</pos>
-			<size>24,24</size>
-		</object>
 		<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
 			<label>Output Directory:</label>
 			<pos>16,192</pos>
@@ -51,6 +46,12 @@
 		<object class="wxStaticLine" name="ID_STATICLINE1" variable="StaticLine1" member="yes">
 			<pos>16,176</pos>
 			<size>464,2</size>
+		</object>
+		<object class="wxButton" name="ID_BUTTON2" variable="ButtonSecondDirectory" member="yes">
+			<label>...</label>
+			<pos>456,120</pos>
+			<size>24,24</size>
+			<handler function="OnButtonSecondDirectoryClick" entry="EVT_BUTTON" />
 		</object>
 		<object class="wxMenuBar" variable="MenuBar1" member="no">
 			<object class="wxMenu" variable="Menu1" member="no">
