@@ -7,25 +7,25 @@
 			<label>Directory 1:</label>
 			<pos>16,16</pos>
 		</object>
-		<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="textFirstDirectory" member="yes">
+		<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextFirstDirectory" member="yes">
 			<pos>16,40</pos>
 			<size>432,24</size>
 		</object>
-		<object class="wxButton" name="ID_BUTTON1" variable="buttonFirstDirectory" member="yes">
+		<object class="wxButton" name="ID_BUTTON1" variable="ButtonFirstDirectory" member="yes">
 			<label>...</label>
 			<pos>456,40</pos>
 			<size>24,24</size>
-			<handler function="OnbuttonFirstDirectoryClick" entry="EVT_BUTTON" />
 		</object>
 		<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
 			<label>Directory 2:</label>
 			<pos>16,96</pos>
 		</object>
-		<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="textSecondDirectory" member="yes">
+		<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextSecondDirectory" member="yes">
 			<pos>16,120</pos>
 			<size>432,24</size>
+			<maxsize>-1,-1</maxsize>
 		</object>
-		<object class="wxToggleButton" name="ID_TOGGLEBUTTON1" variable="buttonSecondDirectory" member="yes">
+		<object class="wxToggleButton" name="ID_TOGGLEBUTTON1" variable="ButtonSecondDirectory" member="yes">
 			<label>...</label>
 			<pos>456,120</pos>
 			<size>24,24</size>
@@ -34,21 +34,19 @@
 			<label>Output Directory:</label>
 			<pos>16,192</pos>
 		</object>
-		<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="textOutputDirectory" member="yes">
+		<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextOutputDirectory" member="yes">
 			<pos>16,216</pos>
 			<size>432,24</size>
 		</object>
-		<object class="wxToggleButton" name="ID_TOGGLEBUTTON2" variable="buttonOutputDirectory" member="yes">
+		<object class="wxToggleButton" name="ID_TOGGLEBUTTON2" variable="ButtonOutputDirectory" member="yes">
 			<label>...</label>
 			<pos>456,216</pos>
 			<size>24,24</size>
-			<handler function="OnbuttonOutputDirectoryToggle" entry="EVT_TOGGLEBUTTON" />
 		</object>
-		<object class="wxToggleButton" name="ID_TOGGLEBUTTON3" variable="buttonMergeDirectories" member="yes">
+		<object class="wxToggleButton" name="ID_TOGGLEBUTTON3" variable="ButtonMergeDirectories" member="yes">
 			<label>Merge Directories</label>
 			<pos>184,304</pos>
 			<size>144,44</size>
-			<handler function="OnbuttonMergeDirectoriesToggle" entry="EVT_TOGGLEBUTTON" />
 		</object>
 		<object class="wxStaticLine" name="ID_STATICLINE1" variable="StaticLine1" member="yes">
 			<pos>16,176</pos>

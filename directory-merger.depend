@@ -1495,7 +1495,7 @@
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\univ\theme.h
 	"wx/string.h"
 
-1570413484 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
+1570429257 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
 	<wx/button.h>
 	<wx/frame.h>
 	<wx/menu.h>
@@ -1783,15 +1783,13 @@
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\msw\rcdefs.h
 
-1570414429 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
+1570429504 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
 	"directory_mergerMain.h"
 	<wx/msgdlg.h>
 	<wx/dirdlg.h>
-	<dirent.h>
 	<vector>
-	<cctype>
+	<dirent.h>
 	<sstream>
-	<cstring>
 	<string>
 	<wx/intl.h>
 	<wx/string.h>
@@ -1915,4 +1913,99 @@
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\osx\dirdlg.h
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\qt\dirdlg.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\statbox.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/containr.h"
+	"wx/univ/statbox.h"
+	"wx/msw/statbox.h"
+	"wx/motif/statbox.h"
+	"wx/gtk/statbox.h"
+	"wx/gtk1/statbox.h"
+	"wx/osx/statbox.h"
+	"wx/qt/statbox.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\univ\statbox.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\msw\statbox.h
+	"wx/compositewin.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\compositewin.h
+	"wx/window.h"
+	"wx/containr.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\motif\statbox.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\gtk\statbox.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\gtk1\statbox.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\osx\statbox.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\qt\statbox.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\clrpicker.h
+	"wx/defs.h"
+	"wx/pickerbase.h"
+	"wx/gtk/clrpicker.h"
+	"wx/qt/clrpicker.h"
+	"wx/generic/clrpickerg.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\pickerbase.h
+	"wx/control.h"
+	"wx/sizer.h"
+	"wx/containr.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\sizer.h
+	"wx/defs.h"
+	"wx/window.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\gtk\clrpicker.h
+	"wx/button.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\qt\clrpicker.h
+	"wx/generic/clrpickerg.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\generic\clrpickerg.h
+	"wx/button.h"
+	"wx/bmpbuttn.h"
+	"wx/colourdata.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\bmpbuttn.h
+	"wx/defs.h"
+	"wx/button.h"
+	"wx/univ/bmpbuttn.h"
+	"wx/msw/bmpbuttn.h"
+	"wx/motif/bmpbuttn.h"
+	"wx/gtk/bmpbuttn.h"
+	"wx/gtk1/bmpbuttn.h"
+	"wx/osx/bmpbuttn.h"
+	"wx/qt/bmpbuttn.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\univ\bmpbuttn.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\msw\bmpbuttn.h
+	"wx/button.h"
+	"wx/bitmap.h"
+	"wx/brush.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\motif\bmpbuttn.h
+	"wx/motif/bmpmotif.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\motif\bmpmotif.h
+	"wx/defs.h"
+	"wx/bitmap.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\gtk\bmpbuttn.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\gtk1\bmpbuttn.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\osx\bmpbuttn.h
+	"wx/button.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\qt\bmpbuttn.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\colourdata.h
+	"wx/colour.h"
 

@@ -14,7 +14,6 @@
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add option="-std=c++11" />
 					<Add directory="C:/Users/DellE7440/libs/wxWidgets-3.1.2/lib/gcc_dll/mswu" />
 				</Compiler>
 				<ResourceCompiler>
