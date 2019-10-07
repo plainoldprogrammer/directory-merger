@@ -1495,10 +1495,12 @@
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\univ\theme.h
 	"wx/string.h"
 
-1570431382 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
+1570437356 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
 	<wx/button.h>
 	<wx/frame.h>
 	<wx/menu.h>
+	<wx/radiobut.h>
+	<wx/statbox.h>
 	<wx/statline.h>
 	<wx/stattext.h>
 	<wx/statusbr.h>
@@ -1782,7 +1784,7 @@
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\msw\rcdefs.h
 
-1570433943 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
+1570437385 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
 	"directory_mergerMain.h"
 	<wx/msgdlg.h>
 	<wx/dirdlg.h>
@@ -1790,6 +1792,7 @@
 	<dirent.h>
 	<sstream>
 	<string>
+	<fstream>
 	<wx/intl.h>
 	<wx/string.h>
 
@@ -2007,4 +2010,31 @@
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\colourdata.h
 	"wx/colour.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\radiobut.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/univ/radiobut.h"
+	"wx/msw/radiobut.h"
+	"wx/motif/radiobut.h"
+	"wx/gtk/radiobut.h"
+	"wx/gtk1/radiobut.h"
+	"wx/osx/radiobut.h"
+	"wx/qt/radiobut.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\univ\radiobut.h
+	"wx/checkbox.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\msw\radiobut.h
+	"wx/msw/ownerdrawnbutton.h"
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\motif\radiobut.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\gtk\radiobut.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\gtk1\radiobut.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\osx\radiobut.h
+
+1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\qt\radiobut.h
 

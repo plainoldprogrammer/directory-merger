@@ -14,6 +14,8 @@
 #include <wx/button.h>
 #include <wx/frame.h>
 #include <wx/menu.h>
+#include <wx/radiobut.h>
+#include <wx/statbox.h>
 #include <wx/statline.h>
 #include <wx/stattext.h>
 #include <wx/statusbr.h>
@@ -42,6 +44,9 @@ class directory_mergerFrame: public wxFrame
         void OnButtonSecondDirectoryClick(wxCommandEvent& event);
         void OnButtonOutputDirectoryClick(wxCommandEvent& event);
         void OnButtonMergeDirectoriesClick(wxCommandEvent& event);
+        void OnCopyRadioButtonSelect(wxCommandEvent& event);
+        void OnCopyRadioButtonSelect1(wxCommandEvent& event);
+        void OnMoveRadioButtonSelect(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(directory_mergerFrame)
@@ -56,6 +61,10 @@ class directory_mergerFrame: public wxFrame
         static const long ID_BUTTON2;
         static const long ID_BUTTON3;
         static const long ID_BUTTON4;
+        static const long ID_STATICBOX1;
+        static const long ID_STATICLINE2;
+        static const long ID_RADIOBUTTON1;
+        static const long ID_RADIOBUTTON2;
         static const long idMenuQuit;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
@@ -66,7 +75,11 @@ class directory_mergerFrame: public wxFrame
         wxButton* ButtonMergeDirectories;
         wxButton* ButtonOutputDirectory;
         wxButton* ButtonSecondDirectory;
+        wxRadioButton* CopyRadioButton;
+        wxRadioButton* MoveRadioButton;
+        wxStaticBox* StaticBox1;
         wxStaticLine* StaticLine1;
+        wxStaticLine* StaticLine2;
         wxStaticText* StaticText1;
         wxStaticText* StaticText2;
         wxStaticText* StaticText3;
@@ -83,6 +96,7 @@ class directory_mergerFrame: public wxFrame
 		std::string outputDirectoryPath;
 		std::vector<std::string>contentOnFirstDirectory;
 		std::vector<std::string>contentOnSecondDirectory;
+		bool moveOperation;
 };
 
 #endif // DIRECTORY_MERGERMAIN_H

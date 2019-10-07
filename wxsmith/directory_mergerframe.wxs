@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="directory_mergerFrame">
-		<size>506,410</size>
+		<size>506,518</size>
 		<id_arg>0</id_arg>
 		<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
 			<label>Directory 1:</label>
@@ -15,7 +15,6 @@
 			<label>...</label>
 			<pos>456,40</pos>
 			<size>24,24</size>
-			<handler function="OnButtonFirstDirectoryClick1" entry="EVT_BUTTON" />
 		</object>
 		<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
 			<label>Directory 2:</label>
@@ -51,9 +50,28 @@
 		</object>
 		<object class="wxButton" name="ID_BUTTON4" variable="ButtonMergeDirectories" member="yes">
 			<label>Merge Directories</label>
-			<pos>184,304</pos>
+			<pos>184,400</pos>
 			<size>144,44</size>
 			<handler function="OnButtonMergeDirectoriesClick" entry="EVT_BUTTON" />
+		</object>
+		<object class="wxStaticBox" name="ID_STATICBOX1" variable="StaticBox1" member="yes">
+			<label>Settings</label>
+			<pos>16,296</pos>
+			<size>464,80</size>
+		</object>
+		<object class="wxStaticLine" name="ID_STATICLINE2" variable="StaticLine2" member="yes">
+			<pos>16,264</pos>
+			<size>464,2</size>
+		</object>
+		<object class="wxRadioButton" name="ID_RADIOBUTTON1" variable="CopyRadioButton" member="yes">
+			<label>Copy</label>
+			<pos>32,328</pos>
+			<handler function="OnCopyRadioButtonSelect1" entry="EVT_RADIOBUTTON" />
+		</object>
+		<object class="wxRadioButton" name="ID_RADIOBUTTON2" variable="MoveRadioButton" member="yes">
+			<label>Move</label>
+			<pos>104,328</pos>
+			<handler function="OnMoveRadioButtonSelect" entry="EVT_RADIOBUTTON" />
 		</object>
 		<object class="wxMenuBar" variable="MenuBar1" member="no">
 			<object class="wxMenu" variable="Menu1" member="no">

@@ -14,6 +14,7 @@
 #include <dirent.h>
 #include <sstream>
 #include <string>
+#include <fstream>
 
 //(*InternalHeaders(directory_mergerFrame)
 #include <wx/intl.h>
@@ -58,6 +59,10 @@ const long directory_mergerFrame::ID_STATICLINE1 = wxNewId();
 const long directory_mergerFrame::ID_BUTTON2 = wxNewId();
 const long directory_mergerFrame::ID_BUTTON3 = wxNewId();
 const long directory_mergerFrame::ID_BUTTON4 = wxNewId();
+const long directory_mergerFrame::ID_STATICBOX1 = wxNewId();
+const long directory_mergerFrame::ID_STATICLINE2 = wxNewId();
+const long directory_mergerFrame::ID_RADIOBUTTON1 = wxNewId();
+const long directory_mergerFrame::ID_RADIOBUTTON2 = wxNewId();
 const long directory_mergerFrame::idMenuQuit = wxNewId();
 const long directory_mergerFrame::idMenuAbout = wxNewId();
 const long directory_mergerFrame::ID_STATUSBAR1 = wxNewId();
@@ -78,7 +83,7 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     wxMenuItem* MenuItem2;
 
     Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
-    SetClientSize(wxSize(506,410));
+    SetClientSize(wxSize(506,518));
     StaticText1 = new wxStaticText(this, ID_STATICTEXT1, _("Directory 1:"), wxPoint(16,16), wxDefaultSize, 0, _T("ID_STATICTEXT1"));
     TextFirstDirectory = new wxTextCtrl(this, ID_TEXTCTRL1, wxEmptyString, wxPoint(16,40), wxSize(432,24), 0, wxDefaultValidator, _T("ID_TEXTCTRL1"));
     ButtonFirstDirectory = new wxButton(this, ID_BUTTON1, _("..."), wxPoint(456,40), wxSize(24,24), 0, wxDefaultValidator, _T("ID_BUTTON1"));
@@ -90,7 +95,11 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     StaticLine1 = new wxStaticLine(this, ID_STATICLINE1, wxPoint(16,176), wxSize(464,2), wxLI_HORIZONTAL, _T("ID_STATICLINE1"));
     ButtonSecondDirectory = new wxButton(this, ID_BUTTON2, _("..."), wxPoint(456,120), wxSize(24,24), 0, wxDefaultValidator, _T("ID_BUTTON2"));
     ButtonOutputDirectory = new wxButton(this, ID_BUTTON3, _("..."), wxPoint(456,216), wxSize(24,24), 0, wxDefaultValidator, _T("ID_BUTTON3"));
-    ButtonMergeDirectories = new wxButton(this, ID_BUTTON4, _("Merge Directories"), wxPoint(184,304), wxSize(144,44), 0, wxDefaultValidator, _T("ID_BUTTON4"));
+    ButtonMergeDirectories = new wxButton(this, ID_BUTTON4, _("Merge Directories"), wxPoint(184,400), wxSize(144,44), 0, wxDefaultValidator, _T("ID_BUTTON4"));
+    StaticBox1 = new wxStaticBox(this, ID_STATICBOX1, _("Settings"), wxPoint(16,296), wxSize(464,80), 0, _T("ID_STATICBOX1"));
+    StaticLine2 = new wxStaticLine(this, ID_STATICLINE2, wxPoint(16,264), wxSize(464,2), wxLI_HORIZONTAL, _T("ID_STATICLINE2"));
+    CopyRadioButton = new wxRadioButton(this, ID_RADIOBUTTON1, _("Copy"), wxPoint(32,328), wxDefaultSize, 0, wxDefaultValidator, _T("ID_RADIOBUTTON1"));
+    MoveRadioButton = new wxRadioButton(this, ID_RADIOBUTTON2, _("Move"), wxPoint(104,328), wxDefaultSize, 0, wxDefaultValidator, _T("ID_RADIOBUTTON2"));
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
     MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
@@ -114,9 +123,13 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
 	Connect(ID_BUTTON2,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonSecondDirectoryClick);
 	Connect(ID_BUTTON3,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonOutputDirectoryClick);
 	Connect(ID_BUTTON4,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonMergeDirectoriesClick);
-
+	Connect(ID_RADIOBUTTON1,wxEVT_COMMAND_RADIOBUTTON_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnCopyRadioButtonSelect);
+	Connect(ID_RADIOBUTTON2,wxEVT_COMMAND_RADIOBUTTON_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnMoveRadioButtonSelect);
     //*)
 
+	moveOperation = false;
+	CopyRadioButton->SetValue(true);
+	MoveRadioButton->SetValue(false);
 	attachConsoleForDebug();
 }
 
@@ -180,7 +193,17 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 		std::string dest = outputDirectoryPath + "\\" + contentOnFirstDirectory.at(i);
 		std::cout << src << "\t=>\t" << dest << std::endl;
 
-		rename(src.c_str(), dest.c_str());
+
+		if (moveOperation == true)
+		{
+			rename(src.c_str(), dest.c_str());
+		}
+		else
+		{
+			std::ifstream srcFile(src.c_str(), std::ios::binary);
+			std::ofstream destFile(dest.c_str(), std::ios::binary);
+			destFile << srcFile.rdbuf();
+		}
 	}
 
 	std::cout << std::endl;
@@ -191,7 +214,16 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 		std::string dest = outputDirectoryPath + "\\" + contentOnSecondDirectory.at(i);
 		std::cout << src << "\t=>\t" << dest << std::endl;
 
-		rename(src.c_str(), dest.c_str());
+		if (moveOperation == true)
+		{
+			rename(src.c_str(), dest.c_str());
+		}
+		else
+		{
+			std::ifstream srcFile(src.c_str(), std::ios::binary);
+			std::ofstream destFile(dest.c_str(), std::ios::binary);
+			destFile << srcFile.rdbuf();
+		}
 	}
 }
 
@@ -300,3 +332,12 @@ void directory_mergerFrame::logDirectoryContent(std::vector<std::string> dirCont
 	std::cout << std::endl;
 }
 
+void directory_mergerFrame::OnCopyRadioButtonSelect(wxCommandEvent& event)
+{
+	moveOperation = false;
+}
+
+void directory_mergerFrame::OnMoveRadioButtonSelect(wxCommandEvent& event)
+{
+	moveOperation = true;
+}
