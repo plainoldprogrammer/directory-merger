@@ -11,10 +11,9 @@
 #include <wx/msgdlg.h>
 #include <wx/dirdlg.h>
 #include <dirent.h>
-#include <string>
 #include <vector>
-#include <cctype>
 #include <sstream>
+#include <string>
 
 //(*InternalHeaders(directory_mergerFrame)
 #include <wx/intl.h>
@@ -89,7 +88,7 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     StaticText3 = new wxStaticText(this, ID_STATICTEXT3, _("Output Directory:"), wxPoint(16,192), wxDefaultSize, 0, _T("ID_STATICTEXT3"));
     textOutputDirectory = new wxTextCtrl(this, ID_TEXTCTRL3, wxEmptyString, wxPoint(16,216), wxSize(432,24), 0, wxDefaultValidator, _T("ID_TEXTCTRL3"));
     buttonOutputDirectory = new wxToggleButton(this, ID_TOGGLEBUTTON2, _("..."), wxPoint(456,216), wxSize(24,24), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON2"));
-    ToggleButton3 = new wxToggleButton(this, ID_TOGGLEBUTTON3, _("Merge Directories"), wxPoint(184,304), wxSize(144,44), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON3"));
+    buttonMergeDirectories = new wxToggleButton(this, ID_TOGGLEBUTTON3, _("Merge Directories"), wxPoint(184,304), wxSize(144,44), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON3"));
     StaticLine1 = new wxStaticLine(this, ID_STATICLINE1, wxPoint(16,176), wxSize(464,2), wxLI_HORIZONTAL, _T("ID_STATICLINE1"));
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
@@ -110,7 +109,8 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
 
     Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonFirstDirectoryClick);
     Connect(ID_TOGGLEBUTTON1,wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonSecondDirectoryToggle);
-    Connect(ID_TOGGLEBUTTON2,wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonOutputDirectoryToggle);
+	Connect(ID_TOGGLEBUTTON2,wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonOutputDirectoryToggle);
+    Connect(ID_TOGGLEBUTTON3,wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonMergeDirectoriesToggle);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnAbout);
     //*)
@@ -167,6 +167,19 @@ void directory_mergerFrame::OnButtonOutputDirectoryToggle(wxCommandEvent& event)
 	std::cout << "OUTPUT DIR: " << outputDirectoryPath <<std::endl;
 }
 
+void directory_mergerFrame::OnButtonMergeDirectoriesToggle(wxCommandEvent& event)
+{
+	std::cout << "Merging Files:" << std::endl;
+	for (unsigned int i = 0; i < contentOnFirstDirectory.size(); i++)
+	{
+		std::string src = firstDirectoryPath + "\\" + contentOnFirstDirectory.at(i);
+		std::string dest = outputDirectoryPath + "\\" + contentOnFirstDirectory.at(i);
+		std::cout << src << "\t=>\t" << dest << std::endl;
+
+		rename(src.c_str(), dest.c_str());
+	}
+}
+
 void directory_mergerFrame::attachConsoleForDebug()
 {
 	AllocConsole();
@@ -190,7 +203,6 @@ std::vector<std::string> directory_mergerFrame::getFilesFromDirectory(std::strin
 
 			if (!(fileName.compare(".") == 0) && !(fileName.compare("..") == 0))
 			{
-				fileName = path + "\\" + fileName;
 				files.push_back(fileName);
 			}
 		}
@@ -272,3 +284,4 @@ void directory_mergerFrame::logDirectoryContent(std::vector<std::string> dirCont
 
 	std::cout << std::endl;
 }
+
