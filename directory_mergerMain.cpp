@@ -138,10 +138,11 @@ void directory_mergerFrame::OnButtonFirstDirectoryClick(wxCommandEvent& event)
 {
 	wxDirDialog dlg(NULL, "Choose first directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
-	textFirstDirectory->SetLabel(dlg.GetPath());
-	contentOnFirstDirectory = getFilesFromDirectory(dlg.GetPath().ToStdString());
+	firstDirectoryPath = dlg.GetPath().ToStdString();
+	textFirstDirectory->SetLabel(firstDirectoryPath);
+	contentOnFirstDirectory = getFilesFromDirectory(firstDirectoryPath);
 
-	std::cout << "DIR " << dlg.GetPath() << ":" << std::endl;
+	std::cout << "DIR " << firstDirectoryPath << ":" << std::endl;
 	logDirectoryContent(contentOnFirstDirectory);
 }
 
@@ -149,17 +150,21 @@ void directory_mergerFrame::OnButtonSecondDirectoryToggle(wxCommandEvent& event)
 {
 	wxDirDialog dlg(NULL, "Choose second directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
-	textSecondDirectory->SetLabel(dlg.GetPath());
-	contentOnSecondDirectory = getFilesFromDirectory(dlg.GetPath().ToStdString());
+	secondDirectoryPath = dlg.GetPath().ToStdString();
+	textSecondDirectory->SetLabel(secondDirectoryPath);
+	contentOnSecondDirectory = getFilesFromDirectory(secondDirectoryPath);
 
-	std::cout << "DIR " << dlg.GetPath() << ":" << std::endl;
+	std::cout << "DIR " << secondDirectoryPath << ":" << std::endl;
 	logDirectoryContent(contentOnSecondDirectory);
 }
 void directory_mergerFrame::OnButtonOutputDirectoryToggle(wxCommandEvent& event)
 {
 	wxDirDialog dlg(NULL, "Choose output directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
-	textOutputDirectory->SetLabel(dlg.GetPath());
+	outputDirectoryPath = dlg.GetPath().ToStdString();
+	textOutputDirectory->SetLabel(outputDirectoryPath);
+
+	std::cout << "OUTPUT DIR: " << outputDirectoryPath <<std::endl;
 }
 
 void directory_mergerFrame::attachConsoleForDebug()

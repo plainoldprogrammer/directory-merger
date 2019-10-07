@@ -78,6 +78,9 @@ class directory_mergerFrame: public wxFrame
 
         DECLARE_EVENT_TABLE()
 
+		std::string firstDirectoryPath;
+		std::string secondDirectoryPath;
+		std::string outputDirectoryPath;
 		std::vector<std::string>contentOnFirstDirectory;
 		std::vector<std::string>contentOnSecondDirectory;
 };
