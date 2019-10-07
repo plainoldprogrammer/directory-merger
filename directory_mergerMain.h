@@ -27,11 +27,10 @@
 class directory_mergerFrame: public wxFrame
 {
     public:
-
-        directory_mergerFrame(wxWindow* parent,wxWindowID id = -1);
-        virtual ~directory_mergerFrame();
+		directory_mergerFrame(wxWindow* parent,wxWindowID id = -1);
+		virtual ~directory_mergerFrame();
 		void attachConsoleForDebug();
-		void getFilesFromDirectory(std::string);
+		std::vector<std::string> getFilesFromDirectory(std::string);
 		static bool compareNaturalOrder(const std::string& , const std::string&);
 		static std::string toUpper(std::string);
 		static void logDirectoryContent(std::vector<std::string>);
@@ -78,6 +77,9 @@ class directory_mergerFrame: public wxFrame
         //*)
 
         DECLARE_EVENT_TABLE()
+
+		std::vector<std::string>contentOnFirstDirectory;
+		std::vector<std::string>contentOnSecondDirectory;
 };
 
 #endif // DIRECTORY_MERGERMAIN_H

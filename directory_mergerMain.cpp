@@ -139,7 +139,10 @@ void directory_mergerFrame::OnButtonFirstDirectoryClick(wxCommandEvent& event)
 	wxDirDialog dlg(NULL, "Choose first directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
 	textFirstDirectory->SetLabel(dlg.GetPath());
-	getFilesFromDirectory(dlg.GetPath().ToStdString());
+	contentOnFirstDirectory = getFilesFromDirectory(dlg.GetPath().ToStdString());
+
+	std::cout << "DIR " << dlg.GetPath() << ":" << std::endl;
+	logDirectoryContent(contentOnFirstDirectory);
 }
 
 void directory_mergerFrame::OnButtonSecondDirectoryToggle(wxCommandEvent& event)
@@ -147,9 +150,11 @@ void directory_mergerFrame::OnButtonSecondDirectoryToggle(wxCommandEvent& event)
 	wxDirDialog dlg(NULL, "Choose second directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
 	textSecondDirectory->SetLabel(dlg.GetPath());
-	getFilesFromDirectory(dlg.GetPath().ToStdString());
-}
+	contentOnSecondDirectory = getFilesFromDirectory(dlg.GetPath().ToStdString());
 
+	std::cout << "DIR " << dlg.GetPath() << ":" << std::endl;
+	logDirectoryContent(contentOnSecondDirectory);
+}
 void directory_mergerFrame::OnButtonOutputDirectoryToggle(wxCommandEvent& event)
 {
 	wxDirDialog dlg(NULL, "Choose output directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
@@ -164,7 +169,7 @@ void directory_mergerFrame::attachConsoleForDebug()
 	std::cout << "Console has been attached" << std::endl;
 }
 
-void directory_mergerFrame::getFilesFromDirectory(std::string path)
+std::vector<std::string> directory_mergerFrame::getFilesFromDirectory(std::string path)
 {
 	DIR *directory;
 	struct dirent *entry;
@@ -174,8 +179,6 @@ void directory_mergerFrame::getFilesFromDirectory(std::string path)
 
 	if ((directory = opendir(path.c_str())) != NULL)
 	{
-		std::cout << "DIR " << path << ":" << std::endl;
-
 		while ((entry = readdir(directory)) != NULL)
 		{
 			fileName = entry->d_name;
@@ -190,12 +193,13 @@ void directory_mergerFrame::getFilesFromDirectory(std::string path)
 		closedir(directory);
 
 		std::sort(files.begin(), files.end(), compareNaturalOrder);
-		logDirectoryContent(files);
 	}
 	else
 	{
 		std::cout << "Can't open directory " << path << std::endl;
 	}
+
+	return files;
 }
 
 bool directory_mergerFrame::compareNaturalOrder(const std::string& a, const std::string& b)
