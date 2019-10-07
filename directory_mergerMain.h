@@ -41,8 +41,9 @@ class directory_mergerFrame: public wxFrame
         void OnAbout(wxCommandEvent& event);
         void OnButtonFirstDirectoryClick(wxCommandEvent& event);
         void OnButtonSecondDirectoryClick(wxCommandEvent& event);
-        void OnButtonOutputDirectoryToggle(wxCommandEvent& event);
+        void OnButtonOutputDirectoryClick(wxCommandEvent& event);
         void OnButtonMergeDirectoriesToggle(wxCommandEvent& event);
+        void OnButtonFirstDirectoryClick1(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(directory_mergerFrame)
@@ -53,10 +54,10 @@ class directory_mergerFrame: public wxFrame
         static const long ID_TEXTCTRL2;
         static const long ID_STATICTEXT3;
         static const long ID_TEXTCTRL3;
-        static const long ID_TOGGLEBUTTON2;
         static const long ID_TOGGLEBUTTON3;
         static const long ID_STATICLINE1;
         static const long ID_BUTTON2;
+        static const long ID_BUTTON3;
         static const long idMenuQuit;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
@@ -64,6 +65,7 @@ class directory_mergerFrame: public wxFrame
 
         //(*Declarations(directory_mergerFrame)
         wxButton* ButtonFirstDirectory;
+        wxButton* ButtonOutputDirectory;
         wxButton* ButtonSecondDirectory;
         wxStaticLine* StaticLine1;
         wxStaticText* StaticText1;
@@ -74,7 +76,6 @@ class directory_mergerFrame: public wxFrame
         wxTextCtrl* TextOutputDirectory;
         wxTextCtrl* TextSecondDirectory;
         wxToggleButton* ButtonMergeDirectories;
-        wxToggleButton* ButtonOutputDirectory;
         //*)
 
         DECLARE_EVENT_TABLE()
