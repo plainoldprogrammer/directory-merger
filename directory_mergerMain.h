@@ -18,7 +18,6 @@
 #include <wx/stattext.h>
 #include <wx/statusbr.h>
 #include <wx/textctrl.h>
-#include <wx/tglbtn.h>
 //*)
 
 #include <string>
@@ -42,8 +41,7 @@ class directory_mergerFrame: public wxFrame
         void OnButtonFirstDirectoryClick(wxCommandEvent& event);
         void OnButtonSecondDirectoryClick(wxCommandEvent& event);
         void OnButtonOutputDirectoryClick(wxCommandEvent& event);
-        void OnButtonMergeDirectoriesToggle(wxCommandEvent& event);
-        void OnButtonFirstDirectoryClick1(wxCommandEvent& event);
+        void OnButtonMergeDirectoriesClick(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(directory_mergerFrame)
@@ -54,10 +52,10 @@ class directory_mergerFrame: public wxFrame
         static const long ID_TEXTCTRL2;
         static const long ID_STATICTEXT3;
         static const long ID_TEXTCTRL3;
-        static const long ID_TOGGLEBUTTON3;
         static const long ID_STATICLINE1;
         static const long ID_BUTTON2;
         static const long ID_BUTTON3;
+        static const long ID_BUTTON4;
         static const long idMenuQuit;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
@@ -65,6 +63,7 @@ class directory_mergerFrame: public wxFrame
 
         //(*Declarations(directory_mergerFrame)
         wxButton* ButtonFirstDirectory;
+        wxButton* ButtonMergeDirectories;
         wxButton* ButtonOutputDirectory;
         wxButton* ButtonSecondDirectory;
         wxStaticLine* StaticLine1;
@@ -75,7 +74,6 @@ class directory_mergerFrame: public wxFrame
         wxTextCtrl* TextFirstDirectory;
         wxTextCtrl* TextOutputDirectory;
         wxTextCtrl* TextSecondDirectory;
-        wxToggleButton* ButtonMergeDirectories;
         //*)
 
         DECLARE_EVENT_TABLE()

@@ -54,10 +54,10 @@ const long directory_mergerFrame::ID_STATICTEXT2 = wxNewId();
 const long directory_mergerFrame::ID_TEXTCTRL2 = wxNewId();
 const long directory_mergerFrame::ID_STATICTEXT3 = wxNewId();
 const long directory_mergerFrame::ID_TEXTCTRL3 = wxNewId();
-const long directory_mergerFrame::ID_TOGGLEBUTTON3 = wxNewId();
 const long directory_mergerFrame::ID_STATICLINE1 = wxNewId();
 const long directory_mergerFrame::ID_BUTTON2 = wxNewId();
 const long directory_mergerFrame::ID_BUTTON3 = wxNewId();
+const long directory_mergerFrame::ID_BUTTON4 = wxNewId();
 const long directory_mergerFrame::idMenuQuit = wxNewId();
 const long directory_mergerFrame::idMenuAbout = wxNewId();
 const long directory_mergerFrame::ID_STATUSBAR1 = wxNewId();
@@ -87,10 +87,10 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     TextSecondDirectory->SetMaxSize(wxSize(-1,-1));
     StaticText3 = new wxStaticText(this, ID_STATICTEXT3, _("Output Directory:"), wxPoint(16,192), wxDefaultSize, 0, _T("ID_STATICTEXT3"));
     TextOutputDirectory = new wxTextCtrl(this, ID_TEXTCTRL3, wxEmptyString, wxPoint(16,216), wxSize(432,24), 0, wxDefaultValidator, _T("ID_TEXTCTRL3"));
-    ButtonMergeDirectories = new wxToggleButton(this, ID_TOGGLEBUTTON3, _("Merge Directories"), wxPoint(184,304), wxSize(144,44), 0, wxDefaultValidator, _T("ID_TOGGLEBUTTON3"));
     StaticLine1 = new wxStaticLine(this, ID_STATICLINE1, wxPoint(16,176), wxSize(464,2), wxLI_HORIZONTAL, _T("ID_STATICLINE1"));
     ButtonSecondDirectory = new wxButton(this, ID_BUTTON2, _("..."), wxPoint(456,120), wxSize(24,24), 0, wxDefaultValidator, _T("ID_BUTTON2"));
     ButtonOutputDirectory = new wxButton(this, ID_BUTTON3, _("..."), wxPoint(456,216), wxSize(24,24), 0, wxDefaultValidator, _T("ID_BUTTON3"));
+    ButtonMergeDirectories = new wxButton(this, ID_BUTTON4, _("Merge Directories"), wxPoint(184,304), wxSize(144,44), 0, wxDefaultValidator, _T("ID_BUTTON4"));
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
     MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
@@ -108,12 +108,12 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
 
+    Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnQuit);
+    Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnAbout);
     Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonFirstDirectoryClick);
     Connect(ID_BUTTON2,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonSecondDirectoryClick);
     Connect(ID_BUTTON3,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonOutputDirectoryClick);
-	Connect(ID_TOGGLEBUTTON3,wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonMergeDirectoriesToggle);
-    Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnQuit);
-    Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnAbout);
+    Connect(ID_BUTTON4,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonMergeDirectoriesClick);
     //*)
 
 	attachConsoleForDebug();
@@ -169,7 +169,7 @@ void directory_mergerFrame::OnButtonOutputDirectoryClick(wxCommandEvent& event)
 	std::cout << "OUTPUT DIR: " << outputDirectoryPath <<std::endl;
 }
 
-void directory_mergerFrame::OnButtonMergeDirectoriesToggle(wxCommandEvent& event)
+void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 {
 	std::cout << "**Merging Files**" << std::endl;
 	std::cout << "First Directory:" << std::endl;

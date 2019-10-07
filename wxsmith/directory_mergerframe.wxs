@@ -34,11 +34,6 @@
 			<pos>16,216</pos>
 			<size>432,24</size>
 		</object>
-		<object class="wxToggleButton" name="ID_TOGGLEBUTTON3" variable="ButtonMergeDirectories" member="yes">
-			<label>Merge Directories</label>
-			<pos>184,304</pos>
-			<size>144,44</size>
-		</object>
 		<object class="wxStaticLine" name="ID_STATICLINE1" variable="StaticLine1" member="yes">
 			<pos>16,176</pos>
 			<size>464,2</size>
@@ -53,7 +48,12 @@
 			<label>...</label>
 			<pos>456,216</pos>
 			<size>24,24</size>
-			<handler function="OnButtonOutputDirectoryClick1" entry="EVT_BUTTON" />
+		</object>
+		<object class="wxButton" name="ID_BUTTON4" variable="ButtonMergeDirectories" member="yes">
+			<label>Merge Directories</label>
+			<pos>184,304</pos>
+			<size>144,44</size>
+			<handler function="OnButtonMergeDirectoriesClick" entry="EVT_BUTTON" />
 		</object>
 		<object class="wxMenuBar" variable="MenuBar1" member="no">
 			<object class="wxMenu" variable="Menu1" member="no">
