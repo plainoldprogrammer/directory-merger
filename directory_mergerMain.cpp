@@ -65,7 +65,6 @@ const long directory_mergerFrame::ID_RADIOBUTTON1 = wxNewId();
 const long directory_mergerFrame::ID_RADIOBUTTON2 = wxNewId();
 const long directory_mergerFrame::idMenuQuit = wxNewId();
 const long directory_mergerFrame::idMenuAbout = wxNewId();
-const long directory_mergerFrame::ID_STATUSBAR1 = wxNewId();
 //*)
 
 BEGIN_EVENT_TABLE(directory_mergerFrame,wxFrame)
@@ -95,7 +94,7 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     StaticLine1 = new wxStaticLine(this, ID_STATICLINE1, wxPoint(16,176), wxSize(464,2), wxLI_HORIZONTAL, _T("ID_STATICLINE1"));
     ButtonSecondDirectory = new wxButton(this, ID_BUTTON2, _("..."), wxPoint(456,120), wxSize(24,24), 0, wxDefaultValidator, _T("ID_BUTTON2"));
     ButtonOutputDirectory = new wxButton(this, ID_BUTTON3, _("..."), wxPoint(456,216), wxSize(24,24), 0, wxDefaultValidator, _T("ID_BUTTON3"));
-    ButtonMergeDirectories = new wxButton(this, ID_BUTTON4, _("Merge Directories"), wxPoint(184,400), wxSize(144,44), 0, wxDefaultValidator, _T("ID_BUTTON4"));
+    ButtonMergeDirectories = new wxButton(this, ID_BUTTON4, _("Merge Directories"), wxPoint(184,420), wxSize(144,44), 0, wxDefaultValidator, _T("ID_BUTTON4"));
     StaticBox1 = new wxStaticBox(this, ID_STATICBOX1, _("Settings"), wxPoint(16,296), wxSize(464,80), 0, _T("ID_STATICBOX1"));
     StaticLine2 = new wxStaticLine(this, ID_STATICLINE2, wxPoint(16,264), wxSize(464,2), wxLI_HORIZONTAL, _T("ID_STATICLINE2"));
     CopyRadioButton = new wxRadioButton(this, ID_RADIOBUTTON1, _("Copy"), wxPoint(32,328), wxDefaultSize, 0, wxDefaultValidator, _T("ID_RADIOBUTTON1"));
@@ -110,12 +109,6 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     Menu2->Append(MenuItem2);
     MenuBar1->Append(Menu2, _("Help"));
     SetMenuBar(MenuBar1);
-    StatusBar1 = new wxStatusBar(this, ID_STATUSBAR1, 0, _T("ID_STATUSBAR1"));
-    int __wxStatusBarWidths_1[1] = { -1 };
-    int __wxStatusBarStyles_1[1] = { wxSB_NORMAL };
-    StatusBar1->SetFieldsCount(1,__wxStatusBarWidths_1);
-    StatusBar1->SetStatusStyles(1,__wxStatusBarStyles_1);
-    SetStatusBar(StatusBar1);
 
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnAbout);

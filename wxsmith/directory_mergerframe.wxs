@@ -51,7 +51,7 @@
 		</object>
 		<object class="wxButton" name="ID_BUTTON4" variable="ButtonMergeDirectories" member="yes">
 			<label>Merge Directories</label>
-			<pos>184,400</pos>
+			<pos>184,420</pos>
 			<size>144,44</size>
 			<handler function="OnButtonMergeDirectoriesClick" entry="EVT_BUTTON" />
 		</object>
@@ -93,11 +93,6 @@
 					<handler function="OnAbout" entry="EVT_MENU" />
 				</object>
 			</object>
-		</object>
-		<object class="wxStatusBar" name="ID_STATUSBAR1" variable="StatusBar1" member="yes">
-			<fields>1</fields>
-			<widths>-1</widths>
-			<styles>wxSB_NORMAL</styles>
 		</object>
 	</object>
 </wxsmith>

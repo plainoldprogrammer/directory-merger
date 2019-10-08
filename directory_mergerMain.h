@@ -18,7 +18,6 @@
 #include <wx/statbox.h>
 #include <wx/statline.h>
 #include <wx/stattext.h>
-#include <wx/statusbr.h>
 #include <wx/textctrl.h>
 //*)
 
@@ -67,7 +66,6 @@ class directory_mergerFrame: public wxFrame
         static const long ID_RADIOBUTTON2;
         static const long idMenuQuit;
         static const long idMenuAbout;
-        static const long ID_STATUSBAR1;
         //*)
 
         //(*Declarations(directory_mergerFrame)
@@ -83,7 +81,6 @@ class directory_mergerFrame: public wxFrame
         wxStaticText* StaticText1;
         wxStaticText* StaticText2;
         wxStaticText* StaticText3;
-        wxStatusBar* StatusBar1;
         wxTextCtrl* TextFirstDirectory;
         wxTextCtrl* TextOutputDirectory;
         wxTextCtrl* TextSecondDirectory;
