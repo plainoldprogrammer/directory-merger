@@ -110,6 +110,9 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     MenuBar1->Append(Menu2, _("Help"));
     SetMenuBar(MenuBar1);
 
+	SetMinClientSize(wxSize(506, 518));
+	SetMaxClientSize(wxSize(506, 518));
+
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnAbout);
     Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonFirstDirectoryClick);
