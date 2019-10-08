@@ -149,24 +149,19 @@ void directory_mergerFrame::OnButtonFirstDirectoryClick(wxCommandEvent& event)
 {
 	wxDirDialog dlg(NULL, "Choose first directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
-	firstDirectoryPath = dlg.GetPath().ToStdString();
-	TextFirstDirectory->SetLabel(firstDirectoryPath);
-	contentOnFirstDirectory = getFilesFromDirectory(firstDirectoryPath);
-
-	std::cout << "DIR " << firstDirectoryPath << ":" << std::endl;
-	logDirectoryContent(contentOnFirstDirectory);
+	// firstDirectoryPath = dlg.GetPath().ToStdString();
+	TextFirstDirectory->SetLabel(dlg.GetPath().ToStdString());
+	std::cout << "DIR " << TextFirstDirectory->GetLabel() << ":" << std::endl;
 }
 
 void directory_mergerFrame::OnButtonSecondDirectoryClick(wxCommandEvent& event)
 {
 	wxDirDialog dlg(NULL, "Choose second directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
-	secondDirectoryPath = dlg.GetPath().ToStdString();
-	TextSecondDirectory->SetLabel(secondDirectoryPath);
-	contentOnSecondDirectory = getFilesFromDirectory(secondDirectoryPath);
+	// secondDirectoryPath = dlg.GetPath().ToStdString();
+	TextSecondDirectory->SetLabel(dlg.GetPath().ToStdString());
+	std::cout << "DIR " << TextSecondDirectory->GetLabel() << ":" << std::endl;
 
-	std::cout << "DIR " << secondDirectoryPath << ":" << std::endl;
-	logDirectoryContent(contentOnSecondDirectory);
 }
 
 void directory_mergerFrame::OnButtonOutputDirectoryClick(wxCommandEvent& event)
@@ -181,12 +176,30 @@ void directory_mergerFrame::OnButtonOutputDirectoryClick(wxCommandEvent& event)
 
 void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 {
+	std::string firstDirectoryPath = std::string(TextFirstDirectory->GetValue().mb_str());
+	contentOnFirstDirectory = getFilesFromDirectory(firstDirectoryPath);
+	std::cout << "Logging the content of first directory:" << std::endl;
+	logDirectoryContent(contentOnFirstDirectory);
+
+	std::string secondDirectoryPath = std::string(TextSecondDirectory->GetValue().mb_str());
+	contentOnSecondDirectory = getFilesFromDirectory(secondDirectoryPath);
+	std::cout << "Logging the content of second directory:";
+	logDirectoryContent(contentOnSecondDirectory);
+
+	std::cout << std::endl;
 	std::cout << "**Merging Files**" << std::endl;
+	std::cout << "First directory: " << firstDirectoryPath << std::endl;
+	std::cout << "Second directory: " << secondDirectoryPath << std::endl;
+	std::cout << std::endl;
+
+	/*
+	 *	Move files from first directory to the output directory.
+	 */
 	std::cout << "First Directory:" << std::endl;
 	for (unsigned int i = 0; i < contentOnFirstDirectory.size(); i++)
 	{
 		std::string src = firstDirectoryPath + "\\" + contentOnFirstDirectory.at(i);
-		std::string dest = outputDirectoryPath + "\\" + contentOnFirstDirectory.at(i);
+		std::string dest = std::string(TextOutputDirectory->GetValue().mb_str()) + "\\" + contentOnFirstDirectory.at(i);
 		std::cout << src << "\t=>\t" << dest << std::endl;
 
 
@@ -202,12 +215,15 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 		}
 	}
 
+	/*
+	 *	Move files from second directory to the output directory.
+	 */
 	std::cout << std::endl;
 	std::cout << "Second Directory:" << std::endl;
 	for (unsigned int i = 0; i < contentOnSecondDirectory.size(); i++)
 	{
 		std::string src = secondDirectoryPath + "\\" + contentOnSecondDirectory.at(i);
-		std::string dest = outputDirectoryPath + "\\" + contentOnSecondDirectory.at(i);
+		std::string dest = std::string(TextOutputDirectory->GetValue().mb_str()) + "\\" + contentOnSecondDirectory.at(i);
 		std::cout << src << "\t=>\t" << dest << std::endl;
 
 		if (moveOperation == true)
