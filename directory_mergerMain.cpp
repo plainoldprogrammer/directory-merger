@@ -82,7 +82,7 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     wxMenuItem* MenuItem1;
     wxMenuItem* MenuItem2;
 
-    Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("Directory Merger"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetClientSize(wxSize(506,518));
     StaticText1 = new wxStaticText(this, ID_STATICTEXT1, _("Directory 1:"), wxPoint(16,16), wxDefaultSize, 0, _T("ID_STATICTEXT1"));
     TextFirstDirectory = new wxTextCtrl(this, ID_TEXTCTRL1, wxEmptyString, wxPoint(16,40), wxSize(432,24), 0, wxDefaultValidator, _T("ID_TEXTCTRL1"));
@@ -117,14 +117,14 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
 
-	Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnQuit);
-	Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnAbout);
-	Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonFirstDirectoryClick);
-	Connect(ID_BUTTON2,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonSecondDirectoryClick);
-	Connect(ID_BUTTON3,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonOutputDirectoryClick);
-	Connect(ID_BUTTON4,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonMergeDirectoriesClick);
-	Connect(ID_RADIOBUTTON1,wxEVT_COMMAND_RADIOBUTTON_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnCopyRadioButtonSelect);
-	Connect(ID_RADIOBUTTON2,wxEVT_COMMAND_RADIOBUTTON_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnMoveRadioButtonSelect);
+    Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnQuit);
+    Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnAbout);
+    Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonFirstDirectoryClick);
+    Connect(ID_BUTTON2,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonSecondDirectoryClick);
+    Connect(ID_BUTTON3,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonOutputDirectoryClick);
+    Connect(ID_BUTTON4,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonMergeDirectoriesClick);
+    Connect(ID_RADIOBUTTON1,wxEVT_COMMAND_RADIOBUTTON_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnCopyRadioButtonSelect);
+    Connect(ID_RADIOBUTTON2,wxEVT_COMMAND_RADIOBUTTON_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnMoveRadioButtonSelect);
     //*)
 
 	moveOperation = false;
@@ -145,8 +145,8 @@ void directory_mergerFrame::OnQuit(wxCommandEvent& event)
 
 void directory_mergerFrame::OnAbout(wxCommandEvent& event)
 {
-    wxString msg = "Directory-Merger (Under Development) \n(No Warranty)\n\nDeveloped by PlainOldProgrammer\n\nResources:\nGNU MinGW g++ (tdm-1) 5.1.0\n" + wxbuildinfo(long_f);
-    wxMessageBox(msg, _("Directory-Merger"));
+    wxString msg = "Directory Merger (Under Development) \n(No Warranty)\n\nDeveloped by PlainOldProgrammer\n\nResources:\nGNU MinGW g++ (tdm-1) 5.1.0\n" + wxbuildinfo(long_f);
+    wxMessageBox(msg, _("Directory Merger"));
 }
 
 void directory_mergerFrame::OnButtonFirstDirectoryClick(wxCommandEvent& event)

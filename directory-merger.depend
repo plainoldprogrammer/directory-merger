@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1570326552 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergerapp.cpp
+1570496480 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergerapp.cpp
 	"directory_mergerApp.h"
 	"directory_mergerMain.h"
 	<wx/image.h>
 
-1570326552 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergerapp.h
+1570496480 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergerapp.h
 	<wx/app.h>
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\app.h
@@ -1495,7 +1495,7 @@
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\univ\theme.h
 	"wx/string.h"
 
-1570437356 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
+1570496480 c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
 	<wx/button.h>
 	<wx/frame.h>
 	<wx/menu.h>
@@ -1775,7 +1775,7 @@
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\qt\tglbtn.h
 	"wx/tglbtn.h"
 
-1514144170 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\resource.rc
+1570496480 source:c:\users\delle7440\desktop\arturo\programacion\proyectos personales (github)\directory-merger\resource.rc
 	"wx/msw/wx.rc"
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\msw\wx.rc

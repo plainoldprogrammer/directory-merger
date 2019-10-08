@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="directory_mergerFrame">
+		<title>Directory Merger</title>
 		<size>506,518</size>
 		<id_arg>0</id_arg>
 		<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
