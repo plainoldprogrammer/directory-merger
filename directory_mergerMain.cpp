@@ -245,7 +245,7 @@ void directory_mergerFrame::attachConsoleForDebug()
 {
 	AllocConsole();
 	freopen("CONOUT$", "w", stdout);
-	std::cout << "Console has been attached" << std::endl;
+	std::cout << "Console has been attached" << std::endl << std::endl;
 }
 
 std::vector<std::string> directory_mergerFrame::getFilesFromDirectory(std::string path)
