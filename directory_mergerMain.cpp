@@ -126,6 +126,12 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
 	moveOperation = false;
 	CopyRadioButton->SetValue(true);
 	MoveRadioButton->SetValue(false);
+
+	ButtonFirstDirectory->SetCursor(wxCursor(wxCURSOR_HAND));
+	ButtonSecondDirectory->SetCursor(wxCursor(wxCURSOR_HAND));
+	ButtonOutputDirectory->SetCursor(wxCursor(wxCURSOR_HAND));
+	ButtonMergeDirectories->SetCursor(wxCursor(wxCURSOR_HAND));
+
 	attachConsoleForDebug();
 }
 
