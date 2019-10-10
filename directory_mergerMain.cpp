@@ -132,6 +132,10 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
 	ButtonOutputDirectory->SetCursor(wxCursor(wxCURSOR_HAND));
 	ButtonMergeDirectories->SetCursor(wxCursor(wxCURSOR_HAND));
 
+	TextFirstDirectory->SetToolTip(_("Full path to the first source directory"));
+	TextSecondDirectory->SetToolTip(_("Full path to the second source directory"));
+	TextOutputDirectory->SetToolTip(_("Full path to the output directory"));
+
 	attachConsoleForDebug();
 }
 
