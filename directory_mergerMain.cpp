@@ -137,13 +137,13 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
 	SetMinClientSize(wxSize(509, 518));
 	SetMaxClientSize(wxSize(509, 518));
 
-	moveOperation = false;
+	operation = Copy;
 	RadioButtonCopy->SetValue(true);
 	RadioButtonMove->SetValue(false);
 
+	behavior = ReplaceAInB;
 	RadioButtonReplaceAInB->SetValue(true);
 	RadioButtonReplaceBInA->SetValue(false);
-	behavior = ReplaceAInB;
 
 	ButtonFirstDirectory->SetCursor(wxCursor(wxCURSOR_HAND));
 	ButtonSecondDirectory->SetCursor(wxCursor(wxCURSOR_HAND));
@@ -177,7 +177,6 @@ void directory_mergerFrame::OnButtonFirstDirectoryClick(wxCommandEvent& event)
 {
 	wxDirDialog dlg(NULL, "Choose first directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
-	// firstDirectoryPath = dlg.GetPath().ToStdString();
 	TextFirstDirectory->SetLabel(dlg.GetPath().ToStdString());
 	std::cout << "DIR " << TextFirstDirectory->GetLabel() << ":" << std::endl;
 }
@@ -186,10 +185,8 @@ void directory_mergerFrame::OnButtonSecondDirectoryClick(wxCommandEvent& event)
 {
 	wxDirDialog dlg(NULL, "Choose second directory", "", wxDD_DEFAULT_STYLE | wxDD_DIR_MUST_EXIST);
 	dlg.ShowModal();
-	// secondDirectoryPath = dlg.GetPath().ToStdString();
 	TextSecondDirectory->SetLabel(dlg.GetPath().ToStdString());
 	std::cout << "DIR " << TextSecondDirectory->GetLabel() << ":" << std::endl;
-
 }
 
 void directory_mergerFrame::OnButtonOutputDirectoryClick(wxCommandEvent& event)
@@ -231,15 +228,12 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 		std::cout << src << "\t=>\t" << dest << std::endl;
 
 
-		if (moveOperation == true)
+		if (operation == Move)
 		{
 			rename(src.c_str(), dest.c_str());
 		}
-		else
+		else if (operation == Copy)
 		{
-			/*
-			 *	Copy files.
-			 */
 			std::ifstream srcFile(src.c_str(), std::ios::binary);
 			std::ofstream destFile(dest.c_str(), std::ios::binary);
 			destFile << srcFile.rdbuf();
@@ -257,11 +251,11 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 		std::string dest = std::string(TextOutputDirectory->GetValue().mb_str()) + "\\" + contentOnSecondDirectory.at(i);
 		std::cout << src << "\t=>\t" << dest << std::endl;
 
-		if (moveOperation == true)
+		if (operation == Move)
 		{
 			rename(src.c_str(), dest.c_str());
 		}
-		else
+		else if (operation == Copy)
 		{
 			std::ifstream srcFile(src.c_str(), std::ios::binary);
 			std::ofstream destFile(dest.c_str(), std::ios::binary);
@@ -379,12 +373,14 @@ void directory_mergerFrame::logDirectoryContent(std::vector<std::string> dirCont
 
 void directory_mergerFrame::OnCopyRadioButtonSelect(wxCommandEvent& event)
 {
-	moveOperation = false;
+	operation = Copy;
+	std::cout << "set Copy" << std::endl;
 }
 
 void directory_mergerFrame::OnMoveRadioButtonSelect(wxCommandEvent& event)
 {
-	moveOperation = true;
+	operation = Move;
+	std::cout << "set Move" << std::endl;
 }
 
 void directory_mergerFrame::OnRadioButtonReplaceAInBSelect(wxCommandEvent& event)
