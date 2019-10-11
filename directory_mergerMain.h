@@ -46,6 +46,8 @@ class directory_mergerFrame: public wxFrame
         void OnButtonMergeDirectoriesClick(wxCommandEvent& event);
         void OnCopyRadioButtonSelect(wxCommandEvent& event);
         void OnMoveRadioButtonSelect(wxCommandEvent& event);
+        void OnRadioButtonReplaceAInBSelect(wxCommandEvent& event);
+        void OnRadioButtonReplaceBInASelect(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(directory_mergerFrame)
@@ -106,6 +108,8 @@ class directory_mergerFrame: public wxFrame
 		std::vector<std::string>contentOnFirstDirectory;
 		std::vector<std::string>contentOnSecondDirectory;
 		bool moveOperation;
+		enum Behavior { ReplaceAInB, ReplaceBInA };
+		Behavior behavior;
 };
 
 #endif // DIRECTORY_MERGERMAIN_H

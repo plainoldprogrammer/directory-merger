@@ -94,10 +94,12 @@
 				<object class="wxRadioButton" name="ID_RADIOBUTTON3" variable="RadioButtonReplaceAInB" member="yes">
 					<label>Replace Files From Directory 1 In Directory 2</label>
 					<pos>24,40</pos>
+					<handler function="OnRadioButtonReplaceAInBSelect" entry="EVT_RADIOBUTTON" />
 				</object>
 				<object class="wxRadioButton" name="ID_RADIOBUTTON4" variable="RadioButtonReplaceBInA" member="yes">
 					<label>Replace Files From Directory 2 In Directory 1</label>
 					<pos>24,72</pos>
+					<handler function="OnRadioButtonReplaceBInASelect" entry="EVT_RADIOBUTTON" />
 				</object>
 			</object>
 		</object>

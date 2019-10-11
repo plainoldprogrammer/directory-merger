@@ -128,6 +128,8 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_BUTTON4,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&directory_mergerFrame::OnButtonMergeDirectoriesClick);
     Connect(ID_RADIOBUTTON1,wxEVT_COMMAND_RADIOBUTTON_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnCopyRadioButtonSelect);
     Connect(ID_RADIOBUTTON2,wxEVT_COMMAND_RADIOBUTTON_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnMoveRadioButtonSelect);
+    Connect(ID_RADIOBUTTON3,wxEVT_COMMAND_RADIOBUTTON_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnRadioButtonReplaceAInBSelect);
+    Connect(ID_RADIOBUTTON4,wxEVT_COMMAND_RADIOBUTTON_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnRadioButtonReplaceBInASelect);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&directory_mergerFrame::OnAbout);
     //*)
@@ -138,6 +140,10 @@ directory_mergerFrame::directory_mergerFrame(wxWindow* parent,wxWindowID id)
 	moveOperation = false;
 	RadioButtonCopy->SetValue(true);
 	RadioButtonMove->SetValue(false);
+
+	RadioButtonReplaceAInB->SetValue(true);
+	RadioButtonReplaceBInA->SetValue(false);
+	behavior = ReplaceAInB;
 
 	ButtonFirstDirectory->SetCursor(wxCursor(wxCURSOR_HAND));
 	ButtonSecondDirectory->SetCursor(wxCursor(wxCURSOR_HAND));
@@ -376,4 +382,16 @@ void directory_mergerFrame::OnCopyRadioButtonSelect(wxCommandEvent& event)
 void directory_mergerFrame::OnMoveRadioButtonSelect(wxCommandEvent& event)
 {
 	moveOperation = true;
+}
+
+void directory_mergerFrame::OnRadioButtonReplaceAInBSelect(wxCommandEvent& event)
+{
+	behavior = ReplaceAInB;
+	std::cout << "set ReplaceAInB" << std::endl;
+}
+
+void directory_mergerFrame::OnRadioButtonReplaceBInASelect(wxCommandEvent& event)
+{
+	behavior = ReplaceBInA;
+	std::cout << "set ReplaceBInA" << std::endl;
 }

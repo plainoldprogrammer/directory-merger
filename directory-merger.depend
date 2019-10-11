@@ -2037,12 +2037,12 @@
 
 1544373608 c:\users\delle7440\libs\wxwidgets-3.1.2\include\wx\qt\radiobut.h
 
-1570609914 source:c:\users\delle7440-pc\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergerapp.cpp
+1570786302 source:c:\users\delle7440-pc\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergerapp.cpp
 	"directory_mergerApp.h"
 	"directory_mergerMain.h"
 	<wx/image.h>
 
-1570609914 c:\users\delle7440-pc\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergerapp.h
+1570786302 c:\users\delle7440-pc\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergerapp.h
 	<wx/app.h>
 
 1544373608 c:\users\delle7440-pc\libs\wxwidgets-3.1.2\include\wx\app.h
@@ -3533,7 +3533,7 @@
 1544373608 c:\users\delle7440-pc\libs\wxwidgets-3.1.2\include\wx\univ\theme.h
 	"wx/string.h"
 
-1570783816 c:\users\delle7440-pc\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
+1570820299 c:\users\delle7440-pc\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.h
 	<wx/button.h>
 	<wx/frame.h>
 	<wx/menu.h>
@@ -3867,7 +3867,7 @@
 
 1544373608 c:\users\delle7440-pc\libs\wxwidgets-3.1.2\include\wx\qt\textctrl.h
 
-1570783974 source:c:\users\delle7440-pc\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
+1570820299 source:c:\users\delle7440-pc\desktop\arturo\programacion\proyectos personales (github)\directory-merger\directory_mergermain.cpp
 	"directory_mergerMain.h"
 	<wx/msgdlg.h>
 	<wx/dirdlg.h>
