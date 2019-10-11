@@ -2,7 +2,7 @@
 <wxsmith>
 	<object class="wxFrame" name="directory_mergerFrame">
 		<title>Directory Merger</title>
-		<size>479,518</size>
+		<size>514,518</size>
 		<id_arg>0</id_arg>
 		<object class="wxPanel" name="ID_PANEL1" variable="MainPanel" member="yes">
 			<pos>504,8</pos>
@@ -13,11 +13,11 @@
 			</object>
 			<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextFirstDirectory" member="yes">
 				<pos>8,40</pos>
-				<size>432,24</size>
+				<size>462,24</size>
 			</object>
 			<object class="wxButton" name="ID_BUTTON1" variable="ButtonFirstDirectory" member="yes">
 				<label>...</label>
-				<pos>448,40</pos>
+				<pos>478,40</pos>
 				<size>24,24</size>
 				<handler function="OnButtonFirstDirectoryClick" entry="EVT_BUTTON" />
 			</object>
@@ -27,18 +27,18 @@
 			</object>
 			<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextSecondDirectory" member="yes">
 				<pos>8,120</pos>
-				<size>432,24</size>
+				<size>462,24</size>
 				<maxsize>-1,-1</maxsize>
 			</object>
 			<object class="wxButton" name="ID_BUTTON2" variable="ButtonSecondDirectory" member="yes">
 				<label>...</label>
-				<pos>448,120</pos>
+				<pos>478,120</pos>
 				<size>24,24</size>
 				<handler function="OnButtonSecondDirectoryClick" entry="EVT_BUTTON" />
 			</object>
 			<object class="wxStaticLine" name="ID_STATICLINE1" variable="StaticLine1" member="yes">
 				<pos>8,160</pos>
-				<size>464,2</size>
+				<size>494,2</size>
 			</object>
 			<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
 				<label>Output Directory:</label>
@@ -46,38 +46,59 @@
 			</object>
 			<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextOutputDirectory" member="yes">
 				<pos>8,216</pos>
-				<size>432,24</size>
+				<size>462,24</size>
 			</object>
 			<object class="wxButton" name="ID_BUTTON3" variable="ButtonOutputDirectory" member="yes">
 				<label>...</label>
-				<pos>448,216</pos>
+				<pos>478,216</pos>
 				<size>24,24</size>
 				<handler function="OnButtonOutputDirectoryClick" entry="EVT_BUTTON" />
 			</object>
 			<object class="wxStaticLine" name="ID_STATICLINE2" variable="StaticLine2" member="yes">
 				<pos>8,264</pos>
-				<size>464,2</size>
-			</object>
-			<object class="wxStaticBox" name="ID_STATICBOX1" variable="StaticBox1" member="yes">
-				<label>Settings</label>
-				<pos>16,296</pos>
-				<size>448,80</size>
-			</object>
-			<object class="wxRadioButton" name="ID_RADIOBUTTON1" variable="CopyRadioButton" member="yes">
-				<label>Copy</label>
-				<pos>32,328</pos>
-				<handler function="OnCopyRadioButtonSelect" entry="EVT_RADIOBUTTON" />
-			</object>
-			<object class="wxRadioButton" name="ID_RADIOBUTTON2" variable="MoveRadioButton" member="yes">
-				<label>Move</label>
-				<pos>104,328</pos>
-				<handler function="OnMoveRadioButtonSelect" entry="EVT_RADIOBUTTON" />
+				<size>494,2</size>
 			</object>
 			<object class="wxButton" name="ID_BUTTON4" variable="ButtonMergeDirectories" member="yes">
 				<label>Merge Directories</label>
-				<pos>166,424</pos>
+				<pos>196,424</pos>
 				<size>144,44</size>
 				<handler function="OnButtonMergeDirectoriesClick" entry="EVT_BUTTON" />
+			</object>
+			<object class="wxPanel" name="ID_PANEL2" variable="PanelOperation" member="yes">
+				<pos>8,276</pos>
+				<size>126,118</size>
+				<object class="wxStaticBox" name="ID_STATICBOX1" variable="StaticBoxOperation" member="yes">
+					<label>Operation</label>
+					<pos>8,8</pos>
+					<size>112,98</size>
+				</object>
+				<object class="wxRadioButton" name="ID_RADIOBUTTON1" variable="RadioButtonCopy" member="yes">
+					<label>Copy</label>
+					<pos>24,40</pos>
+					<handler function="OnCopyRadioButtonSelect" entry="EVT_RADIOBUTTON" />
+				</object>
+				<object class="wxRadioButton" name="ID_RADIOBUTTON2" variable="RadioButtonMove" member="yes">
+					<label>Move</label>
+					<pos>24,72</pos>
+					<handler function="OnMoveRadioButtonSelect" entry="EVT_RADIOBUTTON" />
+				</object>
+			</object>
+			<object class="wxPanel" name="ID_PANEL3" variable="PanelBehavior" member="yes">
+				<pos>140,276</pos>
+				<size>362,118</size>
+				<object class="wxStaticBox" name="ID_STATICBOX2" variable="StaticBoxBehavior" member="yes">
+					<label>Behavior</label>
+					<pos>8,8</pos>
+					<size>344,98</size>
+				</object>
+				<object class="wxRadioButton" name="ID_RADIOBUTTON3" variable="RadioButtonReplaceAInB" member="yes">
+					<label>Replace Files From Directory 1 In Directory 2</label>
+					<pos>24,40</pos>
+				</object>
+				<object class="wxRadioButton" name="ID_RADIOBUTTON4" variable="RadioButtonReplaceBInA" member="yes">
+					<label>Replace Files From Directory 2 In Directory 1</label>
+					<pos>24,72</pos>
+				</object>
 			</object>
 		</object>
 		<object class="wxMenuBar" variable="MenuBar1" member="no">
