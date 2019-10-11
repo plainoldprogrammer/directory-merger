@@ -221,7 +221,7 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 	std::cout << std::endl;
 
 	/*
-	 *	Move files from first directory to the output directory.
+	 *	Manipulate files from first directory to the output directory.
 	 */
 	std::cout << "First Directory:" << std::endl;
 	for (unsigned int i = 0; i < contentOnFirstDirectory.size(); i++)
@@ -237,6 +237,9 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 		}
 		else
 		{
+			/*
+			 *	Copy files.
+			 */
 			std::ifstream srcFile(src.c_str(), std::ios::binary);
 			std::ofstream destFile(dest.c_str(), std::ios::binary);
 			destFile << srcFile.rdbuf();
@@ -244,7 +247,7 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 	}
 
 	/*
-	 *	Move files from second directory to the output directory.
+	 *	Manipulate files from second directory to the output directory.
 	 */
 	std::cout << std::endl;
 	std::cout << "Second Directory:" << std::endl;
