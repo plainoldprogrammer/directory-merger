@@ -201,6 +201,28 @@ void directory_mergerFrame::OnButtonOutputDirectoryClick(wxCommandEvent& event)
 
 void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 {
+	std::cout << "__________________________________________________________________________________" << std::endl;
+	std::cout << std::endl << std::endl << "MERGE DIRECTORIES" << std::endl << std::endl;
+
+	if (operation == Copy)
+	{
+		std::cout << "\tOperation:\t" << "Copy" << std::endl;
+	}
+	else if (operation == Move)
+	{
+		std::cout << "\tOperation:\t" << "Move" << std::endl;
+	}
+
+	if (behavior == ReplaceAInB)
+	{
+		std::cout << "\tBehavior:\t" << "Replace From First Directory to Second Directory" << std::endl;
+	}
+	else if (behavior == ReplaceBInA)
+	{
+		std::cout << "\tBehavior:\t" << "Replace From Second Directory to First Directory" << std::endl;
+	}
+
+	std::cout << std::endl;
 	std::string firstDirectoryPath = std::string(TextFirstDirectory->GetValue().mb_str());
 	contentOnFirstDirectory = getFilesFromDirectory(firstDirectoryPath);
 	std::cout << "Logging the content of first directory:" << std::endl;
@@ -208,62 +230,88 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 
 	std::string secondDirectoryPath = std::string(TextSecondDirectory->GetValue().mb_str());
 	contentOnSecondDirectory = getFilesFromDirectory(secondDirectoryPath);
-	std::cout << "Logging the content of second directory:";
+	std::cout << "Logging the content of second directory:" << std::endl;
 	logDirectoryContent(contentOnSecondDirectory);
 
-	std::cout << std::endl;
-	std::cout << "**Merging Files**" << std::endl;
-	std::cout << "First directory: " << firstDirectoryPath << std::endl;
-	std::cout << "Second directory: " << secondDirectoryPath << std::endl;
-	std::cout << std::endl;
-
-	/*
-	 *	Manipulate files from first directory to the output directory.
-	 */
-	std::cout << "First Directory:" << std::endl;
-	for (unsigned int i = 0; i < contentOnFirstDirectory.size(); i++)
+	if (operation == Copy)
 	{
-		std::string src = firstDirectoryPath + "\\" + contentOnFirstDirectory.at(i);
-		std::string dest = std::string(TextOutputDirectory->GetValue().mb_str()) + "\\" + contentOnFirstDirectory.at(i);
-		std::cout << src << "\t=>\t" << dest << std::endl;
-
-
-		if (operation == Move)
+		if (behavior == ReplaceAInB)
 		{
-			rename(src.c_str(), dest.c_str());
+			std::cout << "Copy files replacing files from first directory in second directory" << std::endl;
+
+			std::vector<std::string> fullPathFilesToCopy;
+			std::vector<std::string> fullPathOutputFiles;
+
+			bool fileShouldBeReplaced = false;
+
+			// Finding the match files in the second directory that will be replaced from the files in the first directory
+			for (unsigned int i = 0; i < contentOnSecondDirectory.size(); i++)
+			{
+				fileShouldBeReplaced = false;
+
+				for (unsigned int j = 0; j < contentOnFirstDirectory.size(); j++)
+				{
+					if ((contentOnSecondDirectory.at(i)).compare(contentOnFirstDirectory.at(j)) == 0)
+					{
+						std::cout << "+ " << contentOnSecondDirectory.at(i) << " will be replaced" << std::endl;
+						fileShouldBeReplaced = true;
+					}
+				}
+
+				if (fileShouldBeReplaced == true)
+				{
+				}
+				else
+				{
+					std::string fileToCopy = std::string(TextSecondDirectory->GetValue().mb_str()) + "\\" + contentOnSecondDirectory.at(i);
+					fullPathFilesToCopy.push_back(fileToCopy);
+
+					std::string outputFile = std::string(TextOutputDirectory->GetValue().mb_str()) + "\\" + contentOnSecondDirectory.at(i);
+					fullPathOutputFiles.push_back(outputFile);
+				}
+			}
+
+			for (unsigned int i = 0; i < contentOnFirstDirectory.size(); i++)
+			{
+				std::string fileToCopy = std::string(TextFirstDirectory->GetValue().mb_str()) + "\\" + contentOnFirstDirectory.at(i);
+				fullPathFilesToCopy.push_back(fileToCopy);
+
+				std::string outputFile = std::string(TextOutputDirectory->GetValue().mb_str()) + "\\" + contentOnFirstDirectory.at(i);
+				fullPathOutputFiles.push_back(outputFile);
+			}
+
+			std::cout << std::endl << "Output directory:" << std::endl;
+			for (unsigned int i = 0; i < fullPathFilesToCopy.size(); i++)
+			{
+				std::string currentFileToCopy = fullPathFilesToCopy.at(i);
+				std::string outputFile = fullPathOutputFiles.at(i);
+
+				std::ifstream srcFile(currentFileToCopy.c_str(), std::ios::binary);
+				std::ofstream destFile(outputFile.c_str(), std::ios::binary);
+				destFile << srcFile.rdbuf();
+			}
 		}
-		else if (operation == Copy)
+		else if (behavior == ReplaceBInA)
 		{
-			std::ifstream srcFile(src.c_str(), std::ios::binary);
-			std::ofstream destFile(dest.c_str(), std::ios::binary);
-			destFile << srcFile.rdbuf();
+			std::cout << "Copy files replacing files from second directory in first directory" << std::endl;
+		}
+	}
+	else if (operation == Move)
+	{
+		if (behavior == ReplaceAInB)
+		{
+			std::cout << "Move files replacing files from first directory in second directory" << std::endl;
+		}
+		else if (behavior == ReplaceBInA)
+		{
+			std::cout << "Move files replacing files from second directory in first directory" << std::endl;
 		}
 	}
 
-	/*
-	 *	Manipulate files from second directory to the output directory.
-	 */
 	std::cout << std::endl;
-	std::cout << "Second Directory:" << std::endl;
-	for (unsigned int i = 0; i < contentOnSecondDirectory.size(); i++)
-	{
-		std::string src = secondDirectoryPath + "\\" + contentOnSecondDirectory.at(i);
-		std::string dest = std::string(TextOutputDirectory->GetValue().mb_str()) + "\\" + contentOnSecondDirectory.at(i);
-		std::cout << src << "\t=>\t" << dest << std::endl;
+	std::cout << "__________________________________________________________________________________" << std::endl << std::endl;
 
-		if (operation == Move)
-		{
-			rename(src.c_str(), dest.c_str());
-		}
-		else if (operation == Copy)
-		{
-			std::ifstream srcFile(src.c_str(), std::ios::binary);
-			std::ofstream destFile(dest.c_str(), std::ios::binary);
-			destFile << srcFile.rdbuf();
-		}
-	}
-
-	wxMessageBox(wxT("Operation Completed!"), wxString("Info"), wxICON_INFORMATION);
+	// wxMessageBox(wxT("Operation Completed!"), wxString("Info"), wxICON_INFORMATION);
 }
 
 void directory_mergerFrame::attachConsoleForDebug()
