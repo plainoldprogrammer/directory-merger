@@ -14,6 +14,7 @@
 #include <wx/button.h>
 #include <wx/frame.h>
 #include <wx/menu.h>
+#include <wx/panel.h>
 #include <wx/radiobut.h>
 #include <wx/statbox.h>
 #include <wx/statline.h>
@@ -53,16 +54,17 @@ class directory_mergerFrame: public wxFrame
         static const long ID_BUTTON1;
         static const long ID_STATICTEXT2;
         static const long ID_TEXTCTRL2;
+        static const long ID_BUTTON2;
+        static const long ID_STATICLINE1;
         static const long ID_STATICTEXT3;
         static const long ID_TEXTCTRL3;
-        static const long ID_STATICLINE1;
-        static const long ID_BUTTON2;
         static const long ID_BUTTON3;
-        static const long ID_BUTTON4;
-        static const long ID_STATICBOX1;
         static const long ID_STATICLINE2;
+        static const long ID_STATICBOX1;
         static const long ID_RADIOBUTTON1;
         static const long ID_RADIOBUTTON2;
+        static const long ID_BUTTON4;
+        static const long ID_PANEL1;
         static const long idMenuQuit;
         static const long idMenuAbout;
         //*)
@@ -72,6 +74,7 @@ class directory_mergerFrame: public wxFrame
         wxButton* ButtonMergeDirectories;
         wxButton* ButtonOutputDirectory;
         wxButton* ButtonSecondDirectory;
+        wxPanel* MainPanel;
         wxRadioButton* CopyRadioButton;
         wxRadioButton* MoveRadioButton;
         wxStaticBox* StaticBox1;
