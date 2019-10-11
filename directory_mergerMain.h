@@ -44,7 +44,6 @@ class directory_mergerFrame: public wxFrame
         void OnButtonOutputDirectoryClick(wxCommandEvent& event);
         void OnButtonMergeDirectoriesClick(wxCommandEvent& event);
         void OnCopyRadioButtonSelect(wxCommandEvent& event);
-        void OnCopyRadioButtonSelect1(wxCommandEvent& event);
         void OnMoveRadioButtonSelect(wxCommandEvent& event);
         //*)
 

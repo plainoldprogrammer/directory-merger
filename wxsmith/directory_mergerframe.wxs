@@ -16,6 +16,7 @@
 			<label>...</label>
 			<pos>456,40</pos>
 			<size>24,24</size>
+			<handler function="OnButtonFirstDirectoryClick" entry="EVT_BUTTON" />
 		</object>
 		<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
 			<label>Directory 2:</label>
@@ -48,6 +49,7 @@
 			<label>...</label>
 			<pos>456,216</pos>
 			<size>24,24</size>
+			<handler function="OnButtonOutputDirectoryClick" entry="EVT_BUTTON" />
 		</object>
 		<object class="wxButton" name="ID_BUTTON4" variable="ButtonMergeDirectories" member="yes">
 			<label>Merge Directories</label>
@@ -67,7 +69,7 @@
 		<object class="wxRadioButton" name="ID_RADIOBUTTON1" variable="CopyRadioButton" member="yes">
 			<label>Copy</label>
 			<pos>32,328</pos>
-			<handler function="OnCopyRadioButtonSelect1" entry="EVT_RADIOBUTTON" />
+			<handler function="OnCopyRadioButtonSelect" entry="EVT_RADIOBUTTON" />
 		</object>
 		<object class="wxRadioButton" name="ID_RADIOBUTTON2" variable="MoveRadioButton" member="yes">
 			<label>Move</label>
