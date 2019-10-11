@@ -10,4 +10,4 @@ A desktop application that merge the files of two directories in a single direct
 
 **Screenshot**
 
-![alt text](https://raw.githubusercontent.com/plainoldprogrammer/directory-merger/master/screenshots/screenshot-main-window.jpg)
+<img src="https://raw.githubusercontent.com/plainoldprogrammer/directory-merger/master/screenshots/screenshot-main-window.jpg" width="358" height="417">
