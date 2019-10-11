@@ -1,7 +1,7 @@
 /***************************************************************
  * Name:      directory_mergerApp.h
  * Purpose:   Defines Application Class
- * Author:     ()
+ * Author:     (PlainOldProgrammer)
  * Created:   2019-10-05
  * Copyright:  ()
  * License:

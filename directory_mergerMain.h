@@ -1,7 +1,7 @@
 /***************************************************************
  * Name:      directory_mergerMain.h
  * Purpose:   Defines Application Frame
- * Author:     ()
+ * Author:     (PlainOldProgrammer)
  * Created:   2019-10-05
  * Copyright:  ()
  * License:

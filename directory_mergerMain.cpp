@@ -1,7 +1,7 @@
 /***************************************************************
  * Name:      directory_mergerMain.cpp
  * Purpose:   Code for Application Frame
- * Author:     ()
+ * Author:     (PlainOldProgrammer)
  * Created:   2019-10-05
  * Copyright:  ()
  * License:
