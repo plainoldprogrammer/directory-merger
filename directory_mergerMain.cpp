@@ -391,6 +391,40 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 		else if (behavior == ReplaceBInA)
 		{
 			std::cout << "Move files replacing files from second directory in first directory" << std::endl;
+
+			std::string fileToMove;
+			std::string outputFile;
+
+			/*
+			 *	First, move the content of the first directory, and then the content of the second directory and replace files if exist.
+			 */
+			for (unsigned int i = 0; i < contentOnFirstDirectory.size(); i++)
+			{
+				fileToMove = std::string(TextFirstDirectory->GetValue().mb_str()) + "\\" + contentOnFirstDirectory.at(i);
+				outputFile = std::string(TextOutputDirectory->GetValue().mb_str()) + "\\" + contentOnFirstDirectory.at(i);
+
+				std::wstring wFileToMove(fileToMove.begin(), fileToMove.end());
+				const wchar_t * wcFileToMove = wFileToMove.c_str();
+
+				std::wstring wOutputFile(outputFile.begin(), outputFile.end());
+				const wchar_t * wcOutputFile = wOutputFile.c_str();
+
+				MoveFileEx(wcFileToMove, wcOutputFile, MOVEFILE_REPLACE_EXISTING);
+			}
+
+			for (unsigned int i = 0; i < contentOnSecondDirectory.size(); i++)
+			{
+				fileToMove = std::string(TextSecondDirectory->GetValue().mb_str()) + "\\" + contentOnSecondDirectory.at(i);
+				outputFile = std::string(TextOutputDirectory->GetValue().mb_str()) + "\\" + contentOnSecondDirectory.at(i);
+
+				std::wstring wFileToMove(fileToMove.begin(), fileToMove.end());
+				const wchar_t * wcFileToMove = wFileToMove.c_str();
+
+				std::wstring wOutputFile(outputFile.begin(), outputFile.end());
+				const wchar_t * wcOutputFile = wOutputFile.c_str();
+
+				MoveFileEx(wcFileToMove, wcOutputFile, MOVEFILE_REPLACE_EXISTING);
+			}
 		}
 	}
 
