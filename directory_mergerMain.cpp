@@ -294,6 +294,58 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 		else if (behavior == ReplaceBInA)
 		{
 			std::cout << "Copy files replacing files from second directory in first directory" << std::endl;
+
+			std::vector<std::string> fullPathFilesToCopy;
+			std::vector<std::string> fullPathOutputFiles;
+
+			bool fileShouldBeReplaced = false;
+
+			// Finding the match files in the first directory that will be replaced from the files in the second directory
+			for (unsigned int i = 0; i < contentOnFirstDirectory.size(); i++)
+			{
+				fileShouldBeReplaced = false;
+
+				for (unsigned int j = 0; j < contentOnSecondDirectory.size(); j++)
+				{
+					if ((contentOnFirstDirectory.at(i)).compare(contentOnSecondDirectory.at(j)) == 0)
+					{
+						std::cout << "+ " << contentOnFirstDirectory.at(i) << " will be replaced" << std::endl;
+						fileShouldBeReplaced = true;
+					}
+				}
+
+				if (fileShouldBeReplaced == true)
+				{
+				}
+				else
+				{
+					std::string fileToCopy = std::string(TextFirstDirectory->GetValue().mb_str()) + "\\" + contentOnFirstDirectory.at(i);
+					fullPathFilesToCopy.push_back(fileToCopy);
+
+					std::string outputFile = std::string(TextOutputDirectory->GetValue().mb_str()) + "\\" + contentOnFirstDirectory.at(i);
+					fullPathOutputFiles.push_back(outputFile);
+				}
+			}
+
+			for (unsigned int i = 0; i < contentOnSecondDirectory.size(); i++)
+			{
+				std::string fileToCopy = std::string(TextSecondDirectory->GetValue().mb_str()) + "\\" + contentOnSecondDirectory.at(i);
+				fullPathFilesToCopy.push_back(fileToCopy);
+
+				std::string outputFile = std::string(TextOutputDirectory->GetValue().mb_str()) + "\\" + contentOnSecondDirectory.at(i);
+				fullPathOutputFiles.push_back(outputFile);
+			}
+
+			std::cout << std::endl << "Output directory:" << std::endl;
+			for (unsigned int i = 0; i < fullPathFilesToCopy.size(); i++)
+			{
+				std::string currentFileToCopy = fullPathFilesToCopy.at(i);
+				std::string outputFile = fullPathOutputFiles.at(i);
+
+				std::ifstream srcFile(currentFileToCopy.c_str(), std::ios::binary);
+				std::ofstream destFile(outputFile.c_str(), std::ios::binary);
+				destFile << srcFile.rdbuf();
+			}
 		}
 	}
 	else if (operation == Move)
@@ -311,7 +363,7 @@ void directory_mergerFrame::OnButtonMergeDirectoriesClick(wxCommandEvent& event)
 	std::cout << std::endl;
 	std::cout << "__________________________________________________________________________________" << std::endl << std::endl;
 
-	// wxMessageBox(wxT("Operation Completed!"), wxString("Info"), wxICON_INFORMATION);
+	wxMessageBox(wxT("Operation Completed!"), wxString("Info"), wxICON_INFORMATION);
 }
 
 void directory_mergerFrame::attachConsoleForDebug()
