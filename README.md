@@ -1,5 +1,10 @@
-# directory-merger
-A desktop application that merge the files of two directories in a single directory.
+# Directory Merger
+
+A desktop application that merge the files of two directories into a single directory.
+
+<img src="https://raw.githubusercontent.com/plainoldprogrammer/directory-merger/master/screenshots/screenshot-main-window.jpg" width="358" height="417">
+
+---
 
 **Capabilities**
 
@@ -9,7 +14,3 @@ A desktop application that merge the files of two directories in a single direct
 * Move the files from two directories (sources) to a single directory (output).
 * Replace files from the first directory in the second directory if exist the filename.
 * Replace files from the second directory in the first directory if exist the filename.
-
-**Screenshot**
-
-<img src="https://raw.githubusercontent.com/plainoldprogrammer/directory-merger/master/screenshots/screenshot-main-window.jpg" width="358" height="417">
