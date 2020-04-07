@@ -1,6 +1,6 @@
 # Directory Merger
 
-*directory merger* is a desktop application that merge the files of two directories into a single directory.
+*Directory Merger* is a desktop application that merge the files of two directories into a single directory.
 
 <img src="https://raw.githubusercontent.com/plainoldprogrammer/directory-merger/master/screenshots/screenshot-main-window.jpg" width="358" height="417">
 
